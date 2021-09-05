@@ -1,0 +1,1 @@
+# argocd-tooling-applications
