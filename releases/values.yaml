@@ -12,8 +12,8 @@ global:
 
 
 applications:
-  tooling-argocd-applications:
-    name: tooling-argocd-applications
+  tooling-applications:
+    name: tooling-applications
     description: tooling argocd applications
     project: tooling
     source:
