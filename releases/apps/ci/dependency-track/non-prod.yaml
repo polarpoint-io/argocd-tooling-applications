@@ -116,7 +116,7 @@ values: |
       enabled: true
       size: 8Gi
       annotations: {}
-      storageClass: "gp2-encrypted"
+      storageClass: ""
     podSecurityContext:
       fsGroup: 1000
     securityContext:
