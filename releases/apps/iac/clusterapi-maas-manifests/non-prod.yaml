@@ -1,5 +1,5 @@
 chart:
-  name: maas
+  name: maas-manifests
   path: releases/apps/iac/clusterapi-maas-manifests/non-prod
   url: git@github.com:polarpoint-io/argocd-tooling-applications.git
   targetRevision: master
