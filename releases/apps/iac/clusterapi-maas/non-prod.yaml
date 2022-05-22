@@ -2,7 +2,7 @@ chart:
   name: maas
   path: releases/apps/iac/clusterapi-maas/non-prod
   url: git@github.com:polarpoint-io/argocd-tooling-applications.git
-  targetRevision: master
+  targetRevision: main
   recurseDirectory: false
   namespace: iac
 
