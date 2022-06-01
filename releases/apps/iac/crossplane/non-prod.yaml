@@ -1,7 +1,7 @@
 chart:
   name: crossplane
   url: https://charts.crossplane.io/stable
-  targetRevision: 1.7.0
+  targetRevision: 1.8.1
   namespace: iac
 
 labels:
@@ -18,7 +18,7 @@ values: |
 
   image:
     repository: crossplane/crossplane
-    tag: v1.7.0
+    tag: v1.8.1
     pullPolicy: IfNotPresent
 
   nodeSelector: {}
@@ -38,9 +38,11 @@ values: |
   leaderElection: true
   args: {}
 
+  # How frequently Crossplane may reconcile its resources (seconds). Default: 10
+  maxReconcileRate: ""
+
   provider:
-    packages:
-    - "crossplane/provider-aws:master"
+    packages: []
 
   configuration:
     packages: []
@@ -100,7 +102,7 @@ values: |
     readOnlyRootFilesystem: true
 
   metrics:
-    enabled: true
+    enabled: false
 
   extraEnvVarsCrossplane: {}
 
