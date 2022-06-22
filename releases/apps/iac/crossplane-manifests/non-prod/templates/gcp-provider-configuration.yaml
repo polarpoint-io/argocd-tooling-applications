@@ -2,7 +2,7 @@
 apiVersion: gcp.crossplane.io/v1beta1
 kind: ProviderConfig
 metadata:
-  name: crossplane-provider-gcp
+  name: default
 spec:
   projectID: polarpoint-demo
   credentials:
