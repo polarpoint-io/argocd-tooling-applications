@@ -21,4 +21,4 @@ spec:
       # make sure this matches the network name you defined in Network
       name: crossplane-built-nw
     # pick a the closest region to you, although for a tutorial, it won't matter much which
-    region: us-east1
+    region: us-west2
