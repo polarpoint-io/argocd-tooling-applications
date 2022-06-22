@@ -24,10 +24,8 @@ metadata:
   name: crossplane-np
 spec:
   forProvider:
-    autoscaling:
-      enabled: true
       maxNodeCount: 5
-      minNodeCount: 4  
+      minNodeCount: 3  
     clusterRef:
       name: example-cluster
     config:
