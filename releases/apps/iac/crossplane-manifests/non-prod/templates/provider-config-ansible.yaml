@@ -1,0 +1,12 @@
+apiVersion: ansible.crossplane.io/v1alpha1
+kind: ProviderConfig
+metadata:
+  name: provider-config-ansible
+spec:
+  requirements: |
+    ---
+    collections:
+      # Install a collection from GitHub repository.
+      - name: https://github.com/imjoseangel/ansiblecommon
+        version: 0.1.4
+        type: git
