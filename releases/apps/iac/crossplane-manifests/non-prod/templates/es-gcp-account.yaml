@@ -3,7 +3,7 @@ apiVersion: external-secrets.io/v1alpha1
 kind: ExternalSecret
 metadata:
   name: gcp-account-creds
-  namespace: crossplane-system
+  namespace: iac
 spec:
   refreshInterval: 24h           # rate SecretManager pulls GCPSM
   secretStoreRef:
