@@ -27,7 +27,7 @@ spec:
     autoscaling:
       enabled: true
       maxNodeCount: 5
-      minNodeCount: 3  
+      minNodeCount: 4  
     clusterRef:
       name: example-cluster
     config:
