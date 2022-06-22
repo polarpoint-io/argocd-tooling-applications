@@ -8,6 +8,6 @@ spec:
   credentials:
     source: Secret
     secretRef:
-      namespace: crossplane-system
+      namespace: iac
       name: gcp-account-creds
       key: credentials
