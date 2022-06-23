@@ -26,7 +26,7 @@ spec:
 
       terraform {
         backend "kubernetes" {
-          secret_suffix     = "providerconfig-provider-config-ansible"
+          secret_suffix     = "providerconfig-provider-config-terraform"
           namespace         = "iac"
           in_cluster_config = true
         }
