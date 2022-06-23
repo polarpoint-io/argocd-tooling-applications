@@ -25,7 +25,7 @@ metadata:
 spec:
   forProvider:
     autoscaling:
-      enabled: false
+      enabled: true
       maxNodeCount: 5
       minNodeCount: 4  
     clusterRef:
