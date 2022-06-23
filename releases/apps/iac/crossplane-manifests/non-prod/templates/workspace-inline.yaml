@@ -30,3 +30,5 @@ spec:
   writeConnectionSecretToRef:
     namespace: default
     name: terraform-workspace-example-inline
+  providerConfigRef:
+    name: crossplane-provider-terraform
