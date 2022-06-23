@@ -27,7 +27,7 @@ spec:
     autoscaling:
       enabled: true
       maxNodeCount: 5
-      minNodeCount: 3  
+      minNodeCount: 5  
     clusterRef:
       name: example-cluster
     config:
@@ -37,6 +37,6 @@ spec:
       imageType: cos_containerd
       labels:
         test-label: crossplane-created
-    initialNodeCount: 3
+    initialNodeCount: 5
     locations:
       - "us-west2-a"
