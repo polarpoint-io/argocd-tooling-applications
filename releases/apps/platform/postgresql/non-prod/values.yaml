@@ -29,7 +29,7 @@ global:
       username: ""
       password: ""
       database: ""
-      existingSecret: ""
+      existingSecret: "backstage-postgres-authentication"
       secretKeys:
         adminPasswordKey: ""
         userPasswordKey: ""
