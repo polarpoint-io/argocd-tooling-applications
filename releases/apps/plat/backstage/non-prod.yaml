@@ -123,14 +123,14 @@ values: |
       backend: 7007
     command: ["node", "packages/backend"]
     args: []
-    extraAppConfig: [
-      APP_CONFIG_backend_baseUrl="https://backstage-backend.tekn.group",
-      APP_CONFIG_backend_origin="https://backstage-tekn.group",
-      APP_CONFIG_app_baseUrl="https://backstage.tekn.group"
-    ]
-    extraEnvVars: [
-
-    ]
+    extraAppConfig: []
+    extraEnvVars:
+      - name: APP_CONFIG_backend_baseUrl
+        value: https://backstage-backend.polarpoint.io
+      - name: APP_CONFIG_backend_origin
+        value: https://backstage.polarpoint.io
+      - name: APP_CONFIG_app_baseUrl
+        value: https://backstage.polarpoint.io
     extraEnvVarsSecrets:
 
   ## @section Traffic Exposure parameters
