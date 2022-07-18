@@ -1,0 +1,38 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: "awx-np-ingress"
+  namespace: "config"
+  annotations:
+    external-dns.alpha.kubernetes.io/hostname: configuration-np.services.polcloud.org
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/wafv2-acl-arn: arn:aws:wafv2:eu-west-2:700677256593:regional/webacl/awx-np-web-acl/5d97f35e-8d80-4ad3-987a-e3d939079bbd
+    alb.ingress.kubernetes.io/load-balancer-attributes: access_logs.s3.enabled=true,access_logs.s3.bucket=hrz-all-s3-alb-logs,access_logs.s3.prefix=awx-np
+    alb.ingress.kubernetes.io/backend-protocol: HTTP
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/subnets: 'subnet-098b04b5a0fd5aad2, subnet-0e526cdc461ae3e55, subnet-0809835826236e46c'
+    alb.ingress.kubernetes.io/security-groups: sg-03ebf3dbda46e8882
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS": 443}]'
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:eu-west-2:700677256593:certificate/d72c24ed-40f2-428e-9115-559b743e2c1c
+    alb.ingress.kubernetes.io/target-type: instance
+    alb.ingress.kubernetes.io/healthcheck-path: /login
+    alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS-1-2-Ext-2018-06
+    alb.ingress.kubernetes.io/auth-type: cognito
+    alb.ingress.kubernetes.io/auth-scope: openid
+    alb.ingress.kubernetes.io/auth-session-timeout: '3600'
+    alb.ingress.kubernetes.io/auth-session-cookie: AWSELBAuthSessionCookie
+    alb.ingress.kubernetes.io/auth-on-unauthenticated-request: authenticate
+    alb.ingress.kubernetes.io/auth-idp-cognito: '{"UserPoolArn":"arn:aws:cognito-idp:eu-west-2:700677256593:userpool/eu-west-2_vPV3dy94Z", "UserPoolClientId":"6sgg8a3nfsdh26c9h4e22edr40", "UserPoolDomain":"dev-ops-tool-awx-np"}'
+    alb.ingress.kubernetes.io/tags: Name=Awx-np-ALB,NAME=Awx-np-ALB,owner=cloudops,cost-centre=114773,environment=shared-services,data-compliance=none
+  labels:
+    app: awx-np-ingress
+spec:
+  rules:
+    - host: configuration-np.services.polcloud.org
+      http:
+        paths:
+          - path: /*
+            backend:
+              serviceName: "awx-service"
+              servicePort:  80

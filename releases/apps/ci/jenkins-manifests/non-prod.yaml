@@ -1,0 +1,13 @@
+chart:
+  name: jenkins-manifests
+  path: releases/apps/ci/jenkins-manifests/non-prod
+  url: git@github.com:pol-onesource/devops-argocd-tooling-applications.git
+  targetRevision: master
+  recurseDirectory: false
+  namespace: ci
+
+labels:
+  service: tooling
+
+
+  

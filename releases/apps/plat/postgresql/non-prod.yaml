@@ -1,14 +1,11 @@
 chart:
   name: backstage-postgresql
   path: releases/apps/plat/postgresql/non-prod
-  url: git@github.com:pol-onesource/devops-argocd-tooling-applications.git
+  url: git@github.com:polarpoint-io/argocd-tooling-applications.git
   targetRevision: main
   recurseDirectory: false
   namespace: platform
 
 labels:
-  service: deploy
+  service: platform
 
-syncPolicy:
-  prune: false
-  selfHeal: false
