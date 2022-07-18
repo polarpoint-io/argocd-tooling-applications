@@ -131,7 +131,10 @@ values: |
         value: https://backstage.polarpoint.io
       - name: APP_CONFIG_app_baseUrl
         value: https://backstage.polarpoint.io
+      - name: APP_CONFIG_app_baseUrl
+        value: https://backstage.polarpoint.io
     extraEnvVarsSecrets:
+      - backstage-postgres-authentication
 
   ## @section Traffic Exposure parameters
 

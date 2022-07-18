@@ -1,11 +1,11 @@
 chart:
-  name: backstage-postgresql
-  path: releases/apps/plat/postgresql/non-prod
+  name: backstage-manifests
+  path: releases/apps/platform/backstage-manifests/non-prod
   url: git@github.com:polarpoint-io/argocd-tooling-applications.git
   targetRevision: main
   recurseDirectory: false
-  namespace: platform
 
 labels:
   service: platform
 
+  
