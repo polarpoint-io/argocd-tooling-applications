@@ -133,10 +133,10 @@ values: |
         value: https://backstage.polarpoint.io
       - name: POSTGRES_HOST
         value: "backstage-postgresql-non-prod"
-      - name: POSTGRES_USER
-        value: "admin"
-      - name: POSTGRES_PORT
-        value: "5432"
+      # - name: POSTGRES_USER
+      #   value: "admin"
+      # - name: POSTGRES_PORT
+      #   value: "5432"
     extraEnvVarsSecrets:
       - backstage-database-authentication
 
