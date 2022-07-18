@@ -2,7 +2,8 @@ chart:
   name: backstage
   url: https://vinzscam.github.io/backstage-chart
   targetRevision: 0.3.0
-
+  namespace: platform
+  
 labels:
   service: platform
 
