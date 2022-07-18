@@ -3,7 +3,7 @@ chart:
   url: https://vinzscam.github.io/backstage-chart
   targetRevision: 0.3.0
   namespace: platform
-  
+
 labels:
   service: platform
 
@@ -103,7 +103,7 @@ values: |
     image:
       registry: "polarpoint"
       repository: "backstage"
-      tag: "0.1.1"
+      tag: "0.1.2"
       ## Specify a imagePullPolicy
       ## Defaults to 'Always' if image tag is 'latest', else set to 'IfNotPresent'
       ## ref: https://kubernetes.io/docs/user-guide/images/#pre-pulling-images
