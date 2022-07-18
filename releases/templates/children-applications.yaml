@@ -23,22 +23,18 @@ spec:
 {{- else }}
     chart: {{ $appConfig.chart.name }}
     repoURL: {{ $appConfig.chart.url }}
+    targetRevision: {{ $appConfig.chart.targetRevision }}
+{{- end }}
+{{- if $appConfig.values }}
     helm:
       values: |
-{{- if $appConfig.values }}
 {{ $appConfig.values | indent 8 }}
 {{- end }}
-{{- end }}
-    targetRevision: {{ $appConfig.chart.targetRevision }}
-
   destination:
     namespace: {{ $appConfig.chart.namespace }}
     server: {{ $globalConfig.destination.server }}
   project: {{ $globalConfig.project }}
   syncPolicy:
-    automated:
-      selfHeal: {{ $appConfig.syncPolicy.selfHeal | default "false" }}
-      prune: {{ $appConfig.syncPolicy.prune | default "false" }}
     syncOptions:
     - CreateNamespace=true
 {{- end }}
