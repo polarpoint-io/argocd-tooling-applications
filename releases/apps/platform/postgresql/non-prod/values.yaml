@@ -119,13 +119,13 @@ image:
 auth:
   ## @param auth.enablePostgresUser Assign a password to the "postgres" admin user. Otherwise, remote access will be blocked for this user
   ##
-  enablePostgresUser: true
+  enablePostgresUser: false
   ## @param auth.postgresPassword Password for the "postgres" admin user. Ignored if `auth.existingSecret` with key `postgres-password` is provided
   ##
   postgresPassword: ""
   ## @param auth.username Name for a custom user to create
   ##
-  username: ""
+  username: "admin"
   ## @param auth.password Password for the custom user to create. Ignored if `auth.existingSecret` with key `password` is provided
   ##
   password: ""
@@ -134,7 +134,7 @@ auth:
   database: ""
   ## @param auth.replicationUsername Name of the replication user
   ##
-  replicationUsername: repl_user
+  replicationUsername: admin
   ## @param auth.replicationPassword Password for the replication user. Ignored if `auth.existingSecret` with key `replication-password` is provided
   ##
   replicationPassword: ""
@@ -146,9 +146,9 @@ auth:
   ## @param auth.secretKeys.replicationPasswordKey Name of key in existing secret to use for PostgreSQL credentials. Only used when `auth.existingSecret` is set.
   ##
   secretKeys:
-    adminPasswordKey: postgres-password
-    userPasswordKey: password
-    replicationPasswordKey: replication-password
+    adminPasswordKey: POSTGRES_PASSWORD
+    userPasswordKey: POSTGRES_PASSWORD
+    replicationPasswordKey: POSTGRES_PASSWORD
   ## @param auth.usePasswordFiles Mount credentials as a files instead of using an environment variable
   ##
   usePasswordFiles: false
