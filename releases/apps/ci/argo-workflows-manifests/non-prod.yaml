@@ -1,0 +1,11 @@
+chart:
+  name: argo-workflows-manifests
+  path: releases/apps/ci/argo-workflows-manifests/non-prod
+  url: git@github.com:pol-onesource/devops-argocd-tooling-applications.git
+  targetRevision: master
+  recurseDirectory: true
+  namespace: ci
+
+labels:
+  service: tooling
+  app: argo-workflows

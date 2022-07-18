@@ -1,0 +1,27 @@
+chart:
+  name: argo-workflows
+  url: https://argoproj.github.io/argo-helm
+  targetRevision: 0.15.0
+  namespace: ci
+
+values: |
+  controller:
+    serviceAccount:
+        # -- Create a service account for the controller
+        create: true
+        # -- Service account name
+        name: "argo-workflows-controller"
+        # -- Annotations applied to created service account
+        annotations: {}
+  server:
+    serviceAccount:
+      # -- Create a service account for the server
+      create: true
+      # -- Service account name
+      name: "argo-workflows-server"
+      # -- Annotations applied to created service account
+      annotations: {}
+
+labels:
+  service: tooling
+  app: argo-workflows
