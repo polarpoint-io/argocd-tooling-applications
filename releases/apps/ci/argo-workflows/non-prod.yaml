@@ -159,7 +159,7 @@ values: |
         prometheus: prometheus-kube-prometheus-operator
         release: prometheus
       # -- Prometheus ServiceMonitor namespace
-      namespace: "monitoring" # "monitoring"
+      namespace: "workflows"
     serviceAccount:
       # -- Create a service account for the controller
       create: true
