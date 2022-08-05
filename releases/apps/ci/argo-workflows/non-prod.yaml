@@ -2,7 +2,7 @@ chart:
   name: argo-workflows
   url: https://argoproj.github.io/argo-helm
   targetRevision: 0.15.0
-  namespace: ci
+  namespace: workflows
 
 labels:
   service: tooling
