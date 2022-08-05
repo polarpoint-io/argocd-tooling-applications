@@ -153,7 +153,7 @@ values: |
       servicePortName: telemetry
     serviceMonitor:
       # -- Enable a prometheus ServiceMonitor
-      enabled: true
+      enabled: false
       # -- Prometheus ServiceMonitor labels
       additionalLabels:
         prometheus: prometheus-kube-prometheus-operator
