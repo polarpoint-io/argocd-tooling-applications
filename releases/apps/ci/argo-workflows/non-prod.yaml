@@ -42,7 +42,7 @@ values: |
     namespace:
     serviceAccount:
       # -- Specifies whether a service account should be created
-      create: false
+      create: true
       # -- Annotations applied to created service account
       annotations: {}
       # -- Service account which is used to run workflows
@@ -180,6 +180,7 @@ values: |
     # be created. Only valid when singleNamespace is false.
     workflowNamespaces:
       - default
+      - workflows
 
     # -- Specifies the container runtime interface to use (one of: `docker`, `kubelet`, `k8sapi`, `pns`, `emissary`)
     ## Ref: https://argoproj.github.io/argo-workflows/workflow-executors/
