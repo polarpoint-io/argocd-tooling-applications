@@ -11,7 +11,7 @@ labels:
 values: |
   images:
     # -- Common tag for Argo Workflows images. Defaults to `.Chart.AppVersion`.
-    tag: "v3.4.0-rc1"
+    tag: "v3.4.0-rc2"
     # -- imagePullPolicy to apply to all containers
     pullPolicy: Always
     # -- Secrets with credentials to pull images from a private registry
@@ -184,7 +184,7 @@ values: |
 
     # -- Specifies the container runtime interface to use (one of: `docker`, `kubelet`, `k8sapi`, `pns`, `emissary`)
     ## Ref: https://argoproj.github.io/argo-workflows/workflow-executors/
-    containerRuntimeExecutor: emissary
+    #containerRuntimeExecutor: emissary
     # -- Specifies the executor to use. This has precedence over `controller.containerRuntimeExecutor`.
     containerRuntimeExecutors: []
       # - name: emissary
