@@ -11,7 +11,7 @@ labels:
 values: |
   images:
     # -- Common tag for Argo Workflows images. Defaults to `.Chart.AppVersion`.
-    tag: "v3.4.0-rc2"
+    tag: ""
     # -- imagePullPolicy to apply to all containers
     pullPolicy: Always
     # -- Secrets with credentials to pull images from a private registry
