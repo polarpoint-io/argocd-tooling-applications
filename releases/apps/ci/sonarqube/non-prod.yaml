@@ -392,7 +392,7 @@ values: |
     ## Alternatively, use a pre-existing k8s secret containing the DB password
     jdbcSecretName: "sonarqube-database-authentication"
     ## and the secretValueKey of the password found within that secret
-    jdbcSecretPasswordKey: "sonarqube-postgres-password"
+    jdbcSecretPasswordKey: "POSTGRES_PASSWORD"
 
   ## Configuration values for postgresql dependency
   ## ref: https://github.com/bitnami/charts/blob/master/bitnami/postgresql/README.md
