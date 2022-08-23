@@ -91,7 +91,7 @@ values: |
     enabled: false
     # Used to create an Ingress record.
     hosts:
-      - name: sonarqube.your-org.com
+      - name: code-analysis.polarpoint.io
         # Different clouds or configurations might need /* as the default path
         path: /
         # For additional control over serviceName and servicePort

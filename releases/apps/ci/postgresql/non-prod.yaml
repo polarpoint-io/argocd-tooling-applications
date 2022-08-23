@@ -1,0 +1,11 @@
+chart:
+  name: sonarqube-postgresql
+  path: releases/apps/ci/postgresql/non-prod
+  url: git@github.com:polarpoint-io/argocd-tooling-applications.git
+  targetRevision: main
+  recurseDirectory: false
+  namespace: ci
+
+labels:
+  service: ci
+
