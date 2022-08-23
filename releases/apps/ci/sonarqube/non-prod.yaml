@@ -14,7 +14,7 @@ values: |
   # Declare variables to be passed into your templates.
 
   # If the deployment Type is set to Deployment sonarqube is deployed as a replica set.
-  deploymentType: "Deployment"
+  deploymentType: "StatefulSet"
 
   # There should not be more than 1 sonarqube instance connected to the same database. Please set this value to 1 or 0 (in case you need to scale down programmatically).
   replicaCount: 1
@@ -88,7 +88,7 @@ values: |
     enabled: false
 
   ingress:
-    enabled: false
+    enabled: true
     # Used to create an Ingress record.
     hosts:
       - name: code-analysis.polarpoint.io
@@ -107,7 +107,7 @@ values: |
 
     # Set ingressClassName if kubernetes version is >= 1.18
     # Reference: https://kubernetes.io/blog/2020/04/02/improvements-to-the-ingress-api-in-kubernetes-1.18/
-    # ingressClassName: nginx
+    ingressClassName: nginx
 
   # Additional labels for Ingress manifest file
     # labels:
