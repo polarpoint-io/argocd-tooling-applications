@@ -29,7 +29,7 @@ global:
       username: ""
       password: ""
       database: ""
-      existingSecret: "backstage-database-authentication"
+      existingSecret: "sonarqube-database-authentication"
       secretKeys:
         adminPasswordKey: "POSTGRES_PASSWORD"
         userPasswordKey: "POSTGRES_PASSWORD"
