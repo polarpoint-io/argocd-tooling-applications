@@ -1,7 +1,7 @@
 chart:
   name: sonarqube
   url: https://SonarSource.github.io/helm-chart-sonarqube
-  targetRevision: 5.0.2
+  targetRevision: 5.0.0+336
   namespace: ci
   
 labels:
