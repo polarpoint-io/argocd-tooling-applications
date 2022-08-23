@@ -102,7 +102,7 @@ values: |
     # Set min/max heap here if needed with:
     # javaOpts: "-Xms512m -Xmx512m"
     # jenkinsOpts: ""
-    jenkinsUrl: "https://build-np.services.polcloud.org"
+    jenkinsUrl: "https://build.polarpoint.io"
     # If you set this prefix and use ingress controller then you might want to set the ingress path below
     # jenkinsUriPrefix: "/jenkins"
     # Enable pod security context (must be `true` if runAsUser or fsGroup are set)
@@ -492,7 +492,7 @@ values: |
     #     // Configure the SCM
     #     // -----------------
 
-    #     def projectURL = "https://github.com/pol-onesource/devops-groovy-jenkins-pipelines.git"
+    #     def projectURL = "https://github.com/polarpoint-io/devops-groovy-jenkins-pipelines.git"
     #     // We are using a predefined user id (srv-jenkins). You can change it in the global config.
     #     List<UserRemoteConfig> user = Collections.singletonList(new UserRemoteConfig(projectURL, '', '', 'github-ssh-access'))
     #     List<BranchSpec> branches = Collections.singletonList(new BranchSpec("refs/heads/main"))
@@ -592,7 +592,7 @@ values: |
                     git {
                         id = 'seed-job'
                         remote {
-                          url = 'git@github.com:pol-onesource/devops-groovy-jenkins-pipelines.git'
+                          url = 'git@github.com:polarpoint-io/devops-groovy-jenkins-pipelines.git'
                           credentials = "github-ssh-access"
                           }
                         
@@ -627,7 +627,7 @@ values: |
                         modernSCM:
                           scm:
                             git:
-                              remote: git@github.com:pol-onesource/devops-groovy-jenkins-shared-library.git
+                              remote: git@github.com:polarpoint-io/devops-groovy-jenkins-shared-library.git
                               credentialsId: "github-ssh-access"
                               traits:
                               - "gitBranchDiscovery"
@@ -647,23 +647,6 @@ values: |
       #      systemMessage: Welcome to our CI\CD server.  This Jenkins is configured and managed 'as code'.
       # Ignored if securityRealm is defined in master.JCasC.configScripts and
       # ignored if master.enableXmlConfig=true as master.securityRealm takes precedence
-      securityRealm: |
-          oic:
-            authorizationServerUrl: "https://dev-ops-tool-jenkins-np.auth.eu-west-2.amazoncognito.com/oauth2/authorize"
-            clientId: "qoj3b4aba3tgardohh2sqetqm"
-            clientSecret: "${CLIENT_SECRET}"
-            disableSslVerification: false
-            emailFieldName: "email"
-            endSessionEndpoint: "https://dev-ops-tool-jenkins-np.auth.eu-west-2.amazoncognito.com/logout?response_type=code&client_id=qoj3b4aba3tgardohh2sqetqm&logout_uri=https://build-np.services.polcloud.org/logout&redirect_uri=https://pol-login.awsapps.com/start"
-            escapeHatchEnabled: false
-            fullNameFieldName: "name"
-            groupsFieldName: "cognito:groups"
-            logoutFromOpenidProvider: true
-            postLogoutRedirectUrl: "https://pol-login.awsapps.com/start"
-            scopes: "openid email"
-            tokenServerUrl: "https://dev-ops-tool-jenkins-np.auth.eu-west-2.amazoncognito.com/oauth2/token"
-            userInfoServerUrl: "https://dev-ops-tool-jenkins-np.auth.eu-west-2.amazoncognito.com/oauth2/userInfo"
-            userNameField: "email"
       #  legacy
       # Ignored if authorizationStrategy is defined in master.JCasC.configScripts and
       # ignored if master.enableXmlConfig=true as master.authorizationStrategy takes precedence
@@ -1153,7 +1136,7 @@ values: |
                 - name: docker-socket
                   mountPath: /var/run
                 - name: docker-harbor-ca-cert
-                  mountPath: /etc/docker/certs.d/image.services.polcloud.org
+                  mountPath: /etc/docker/certs.d/image.polarpoint.io
               - name: docker-daemon
                 image: docker:19.03.1-dind
                 securityContext:
@@ -1162,13 +1145,13 @@ values: |
                 - name: docker-socket
                   mountPath: /var/run
                 - name: docker-harbor-ca-cert
-                  mountPath: /etc/docker/certs.d/image.services.polcloud.org          
+                  mountPath: /etc/docker/certs.d/image.polarpoint.io
       versioner: |
         - name: versioner
           label: versioner
           containers:
             - name: maven-git-client
-              image: image.services.polcloud.org/image/maven-git-client:0.1.0-FINAL
+              image: image.polarpoint.io/image/maven-git-client:0.1.0-FINAL
               command: "/bin/sh -c"
               args: "cat"
               ttyEnabled: true
@@ -1178,7 +1161,7 @@ values: |
               resourceLimitCpu: "1"
               resourceLimitMemory: "1024Mi"
             - name: node-16
-              image: image.services.polcloud.org/image/node-16:0.1.0-FINAL
+              image: image.polarpoint.io/image/node-16:0.1.0-FINAL
               command: "/bin/sh -c"
               args: "cat"
               ttyEnabled: true
@@ -1305,7 +1288,7 @@ values: |
           label: helm-3-6-0
           containers:
             - name: helm-3-6-0
-              image: image.services.polcloud.org/image/helm-client:3.6.0-FINAL
+              image: image.polarpoint.io/image/helm-client:3.6.0-FINAL
               command: "/bin/sh -c"
               args: "cat"
               ttyEnabled: true
@@ -1316,28 +1299,12 @@ values: |
               resourceLimitMemory: "2048Mi"
           imagePullSecrets:
             - name: docker-registry-credentials
-      spin-cli: |
-        - name: spin-cli
-          label: spin-cli
-          containers:
-            - name: spin-cli
-              image: image.services.polcloud.org/image/spin-cli:0.1.0-FINAL
-              command: "/bin/sh -c"
-              args: "cat"
-              ttyEnabled: true
-              privileged: true
-              resourceRequestCpu: "400m"
-              resourceRequestMemory: "512Mi"
-              resourceLimitCpu: "1"
-              resourceLimitMemory: "1024Mi"
-          imagePullSecrets:
-            - name: docker-registry-credentials
       go-lang-1-15-6: |
         - name: go-lang-1-15-6
           label: go-lang-1-15-6
           containers:
             - name: go-lang-1-15-6
-              image: image.services.polcloud.org/image/go-lang:1.17.2-FINAL
+              image: image.polarpoint.io/image/go-lang:1.17.2-FINAL
               command: "/bin/sh -c"
               args: "cat"
               ttyEnabled: true
@@ -1353,7 +1320,7 @@ values: |
           label: jmeter-5-4-0
           containers:
             - name: jmeter-5-4-0
-              image: image.services.polcloud.org/image/jmeter:0.1.0-FINAL 
+              image: image.polarpoint.io/image/jmeter:0.1.0-FINAL 
               command: "/bin/sh -c"
               args: "cat"
               ttyEnabled: true
@@ -1392,28 +1359,12 @@ values: |
               resourceLimitMemory: "1024Mi"               
           imagePullSecrets:
             - name: docker-registry-credentials
-      proc-cli: |
-        - name: proc-cli
-          label: proc-cli
-          containers:
-            - name: proc-cli
-              image: image.services.polcloud.org/image/proc-cli:0.1.0-FINAL
-              command: "/bin/sh -c"
-              args: "cat"
-              ttyEnabled: true
-              privileged: true
-              resourceRequestCpu: "500m"
-              resourceRequestMemory: "1024Mi"
-              resourceLimitCpu: "1"
-              resourceLimitMemory: "2024Mi"               
-          imagePullSecrets:
-            - name: docker-registry-credentials          
       packer-1-7: |
         - name: packer-1-7
           label: packer-1-7
           containers:
             - name: packer-1-7
-              image: image.services.polcloud.org/image/packer-client:1.8.0-FINAL
+              image: image.polarpoint.io/image/packer-client:1.8.0-FINAL
               command: "/bin/sh -c"
               args: "cat"
               ttyEnabled: true
@@ -1429,7 +1380,7 @@ values: |
           label: maven-git-client
           containers:
             - name: maven-git-client
-              image: image.services.polcloud.org/image/maven-git-client:0.1.0-FINAL
+              image: image.polarpoint.io/image/maven-git-client:0.1.0-FINAL
               command: "/bin/sh -c"
               args: "cat"
               ttyEnabled: true
@@ -1445,7 +1396,7 @@ values: |
           label: node-16
           containers:
             - name: node-16
-              image: image.services.polcloud.org/image/node-16:0.1.0-FINAL
+              image: image.polarpoint.io/image/node-16:0.1.0-FINAL
               command: "/bin/sh -c"
               args: "cat"
               ttyEnabled: true
