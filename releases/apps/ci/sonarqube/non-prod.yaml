@@ -88,7 +88,7 @@ values: |
     enabled: false
 
   ingress:
-    enabled: false
+    enabled: true
     # Used to create an Ingress record.
     hosts:
       - name: code-analysis.polarpoint.io
