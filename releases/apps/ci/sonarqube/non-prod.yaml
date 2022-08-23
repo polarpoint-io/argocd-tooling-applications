@@ -382,13 +382,13 @@ values: |
   ## for external Databases
   jdbcOverwrite:
     # If enable the JDBC Overwrite, make sure to set `postgresql.enabled=false`
-    enable: false
+    enable: true
     # The JDBC url of the external DB
     jdbcUrl: "jdbc:postgresql://SONARQUBE-POSTGRESQL-NON-PROD:5432/sonarqube?socketTimeout=1500"
     # The DB user that should be used for the JDBC connection
     jdbcUsername: "admin"
     # Use this if you don't mind the DB password getting stored in plain text within the values file
-    jdbcPassword: "sonarPass"
+    #jdbcPassword: "sonarPass"
     ## Alternatively, use a pre-existing k8s secret containing the DB password
     jdbcSecretName: "sonarqube-database-authentication"
     ## and the secretValueKey of the password found within that secret
