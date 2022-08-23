@@ -14,7 +14,7 @@ values: |
   # Declare variables to be passed into your templates.
 
   # If the deployment Type is set to Deployment sonarqube is deployed as a replica set.
-  deploymentType: "StatefulSet"
+  deploymentType: "Deployment"
 
   # There should not be more than 1 sonarqube instance connected to the same database. Please set this value to 1 or 0 (in case you need to scale down programmatically).
   replicaCount: 1
