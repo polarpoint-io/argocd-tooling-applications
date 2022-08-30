@@ -33,8 +33,8 @@ expose:
       notarySecretName: ""
   ingress:
     hosts:
-      core: registry.polarpoint.io
-      notary: notary.polarpoint.io
+      core: core.harbor.domain
+      notary: notary.harbor.domain
     # set to the type of ingress controller if it has specific requirements.
     # leave as `default` for most ingress controllers.
     # set to `gce` if using the GCE ingress controller
