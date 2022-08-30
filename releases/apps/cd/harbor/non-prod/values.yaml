@@ -612,7 +612,7 @@ chartmuseum:
 
 trivy:
   # enabled the flag to enable Trivy scanner
-  enabled: false
+  enabled: true
   image:
     # repository the repository for Trivy adapter image
     repository: goharbor/trivy-adapter-photon
