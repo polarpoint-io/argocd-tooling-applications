@@ -140,7 +140,6 @@ values: |
       #   value: "5432"
     extraEnvVarsSecrets:
       - backstage-database-authentication
-      - 
 
   ## @section Traffic Exposure parameters
 
