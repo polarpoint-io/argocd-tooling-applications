@@ -9,6 +9,9 @@ spec:
     - secretKey: K8S_TOKEN
       remoteRef:
         key: kubernetes-tooling-token
+    - secretKey: K8S_URL
+      remoteRef:
+        key: kubernetes-tooling-token-url
   secretStoreRef:
     kind: ClusterSecretStore
     name: cluster-secrets-store
