@@ -6,18 +6,12 @@ metadata:
   namespace: platform
 spec:
   data:
-    - secretKey: AUTH_GITHUB_CLIENT_ID
+    - secretKey: K8S_TOKEN
       remoteRef:
-        key: github-client-id
-    - secretKey: AUTH_GITHUB_CLIENT_SECRET
-      remoteRef:
-        key: github-client-secret
-    - secretKey: GITHUB_TOKEN
-      remoteRef:
-        key: github-token
+        key: kubernetes-tooling-token
   secretStoreRef:
     kind: ClusterSecretStore
     name: cluster-secrets-store
   target:
     creationPolicy: Owner
-    name: backstage-github-authentication
+    name: backstage-kubernetes-authentication
