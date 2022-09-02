@@ -1,7 +1,7 @@
 chart:
   name: jenkins
   url: https://charts.jenkins.io
-  targetRevision: 3.12.1
+  targetRevision: 4.1.17
   namespace: ci
   
 labels:
