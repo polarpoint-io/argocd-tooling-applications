@@ -5,7 +5,7 @@ metadata:
   name: awx
   namespace: config
 spec:
-  service_type: ClusterIP
+  service_type: NodePort
   ingress_type: ingress
   hostname: configuration.polarpoint.io
   projects_persistence: true
