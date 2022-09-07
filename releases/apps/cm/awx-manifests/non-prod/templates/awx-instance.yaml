@@ -6,6 +6,7 @@ metadata:
   namespace: config
 spec:
   service_type: NodePort
+  nodeport_port: 30081
   ingress_type: ingress
   hostname: configuration.polarpoint.io
   projects_persistence: true
