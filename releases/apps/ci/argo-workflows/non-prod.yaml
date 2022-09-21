@@ -1,7 +1,7 @@
 chart:
   name: argo-workflows
   url: https://argoproj.github.io/argo-helm
-  targetRevision: 0.17.0
+  targetRevision: 0.19.1
   namespace: workflows
 
 labels:
