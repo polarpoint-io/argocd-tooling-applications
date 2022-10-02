@@ -390,7 +390,7 @@ values: |
       - theme-manager:0.5
       - timestamper:1.11.7
       - token-macro:293.v283932a_0a_b_49
-      - trilead-api:1.0.13
+      - trilead-api:1.67.vc3938a_35172f
       - variant:1.4
       - warnings-ng:9.11.1
       - windows-slaves:1.8
