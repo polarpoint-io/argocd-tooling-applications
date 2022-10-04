@@ -43,7 +43,7 @@ spec:
 apiVersion: controlplane.cluster.x-k8s.io/v1alpha3
 kind: KubeadmControlPlane
 metadata:
-  name: my-cluster-cp
+  name: maas-cluster-cp
   namespace: iac
 spec:
   replicas: 1
@@ -51,8 +51,8 @@ spec:
   infrastructureTemplate:
     apiVersion: infrastructure.cluster.x-k8s.io/v1alpha3
     kind: MaasMachineTemplate
-    name: my-cluster-cp
-    namespace: default
+    name: maas-cluster-cp
+    namespace: iac
   kubeadmConfigSpec:
     clusterConfiguration: {}
     initConfiguration: {}
@@ -62,7 +62,7 @@ status:
 apiVersion: infrastructure.cluster.x-k8s.io/v1alpha3
 kind: MaasMachineTemplate
 metadata:
-  name: my-cluster-worker
+  name: maas-cluster-worker
   namespace: iac
 spec:
   template:
@@ -74,23 +74,23 @@ spec:
 apiVersion: cluster.x-k8s.io/v1alpha3
 kind: MachineDeployment
 metadata:
-  name: demo-cluster-worker
+  name: maas-cluster-worker
   namespace: iac
 spec:
-  clusterName: demo-cluster
+  clusterName: maas-cluster
   replicas: 1
   selector:
     matchLabels:
       cluster.x-k8s.io/cluster-name: my-cluster
   template:
     spec:
-      clusterName: demo-cluster
+      clusterName: maas-cluster
       version: 1.19.12
       bootstrap:
         configRef:
           apiVersion: bootstrap.cluster.x-k8s.io/v1alpha3
           kind: KubeadmConfigTemplate
-          name: demo-cluster-worker
+          name: maas-cluster-worker
       infrastructureRef:
         apiVersion: infrastructure.cluster.x-k8s.io/v1alpha3
         kind: MaasMachineTemplate
@@ -99,7 +99,7 @@ spec:
 apiVersion: bootstrap.cluster.x-k8s.io/v1alpha3
 kind: KubeadmConfigTemplate
 metadata:
-  name: demo-cluster-worker
+  name: maas-cluster-worker
   namespace: iac
 spec:
   template:
