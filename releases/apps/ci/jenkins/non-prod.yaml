@@ -92,11 +92,11 @@ values: |
     #   - name: http_proxy
     #     value: "http://192.168.64.1:3128"
     containerEnv:
-      - name: CLIENT_SECRET
-        valueFrom:
-          secretKeyRef:
-            name: jenkins-clientsecret
-            key: password
+      # - name: CLIENT_SECRET
+      #   valueFrom:
+      #     secretKeyRef:
+      #       name: jenkins-clientsecret
+      #       key: password
     #   - name: http_proxy
     #     value: "http://192.168.64.1:3128"
     # Set min/max heap here if needed with:
