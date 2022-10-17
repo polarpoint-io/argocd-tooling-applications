@@ -614,7 +614,7 @@ values: |
                 - name: "GitHub"
                   apiUrl: "https://github.com/api/v3"
                   clientCacheSize: 50
-                  credentialsId: "github-personal-access-token"
+                  credentialsId: "github-pat-access"
             gitscm:
               globalConfigName: jenkins
               globalConfigEmail: jenkins@domain.local
@@ -627,7 +627,7 @@ values: |
                         modernSCM:
                           scm:
                             git:
-                              remote: git@github.com:polarpoint-io/devops-groovy-jenkins-shared-library.git
+                              remote: git@github.com:polarpoint-io/groovy-jenkins-shared-library.git
                               credentialsId: "github-ssh-access"
                               traits:
                               - "gitBranchDiscovery"
