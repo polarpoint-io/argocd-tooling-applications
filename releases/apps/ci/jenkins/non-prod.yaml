@@ -608,40 +608,6 @@ values: |
                           cron('@midnight')
                         }
                 }                           
-          unclassified:
-            githubpluginconfig:
-              configs:
-                - name: "GitHub"
-                  apiUrl: "https://github.com/api/v3"
-                  clientCacheSize: 50
-                  credentialsId: "github-personal-access-token"
-            gitscm:
-              globalConfigName: jenkins
-              globalConfigEmail: jenkins@domain.local
-              createAccountBasedOnEmail: true
-            globalLibraries:
-                  libraries:
-                    - name: "pipeline-library"
-                      defaultVersion: "master"
-                      retriever:
-                        modernSCM:
-                          scm:
-                            git:
-                              remote: git@github.com:polarpoint-io/devops-groovy-jenkins-shared-library.git
-                              credentialsId: "github-ssh-access"
-                              traits:
-                              - "gitBranchDiscovery"
-            globalSettings:
-            simple-theme-plugin:
-              elements:
-              - cssUrl:
-                  url: "https://tobix.github.io/jenkins-neo2-theme/dist/neo-light.css"                                                        
-            sonarGlobalConfiguration:
-              buildWrapperEnabled: true
-              installations:
-                - name: "sonarQubeDev"
-                  serverUrl: "http://sonarqube-sonarqube.continuous-integration.svc.cluster.local:9000"
-                  credentialsId: "sonarqube-api-token"  
       #  welcome-message: |
       #    jenkins:
       #      systemMessage: Welcome to our CI\CD server.  This Jenkins is configured and managed 'as code'.
@@ -651,28 +617,31 @@ values: |
       # Ignored if authorizationStrategy is defined in master.JCasC.configScripts and
       # ignored if master.enableXmlConfig=true as master.authorizationStrategy takes precedence
       authorizationStrategy: |-
-          globalMatrix:
-            permissions:
-            - "Credentials/View:AWS-SSO-Jenkins-User"
-            - "Job/Build:AWS-SSO-Jenkins-User"
-            - "Job/Cancel:AWS-SSO-Jenkins-User"
-            - "Job/Configure:AWS-SSO-Jenkins-User"
-            - "Job/Create:AWS-SSO-Jenkins-User"
-            - "Job/Delete:AWS-SSO-Jenkins-User"
-            - "Job/Move:AWS-SSO-Jenkins-User"
-            - "Job/Read:AWS-SSO-Jenkins-User"
-            - "Job/Workspace:AWS-SSO-Jenkins-User"
-            - "Lockable Resources/View:AWS-SSO-Jenkins-User"
-            - "Overall/Administer:AWS-SSO-Admin-Users"
-            - "Overall/Read:authenticated"
-            - "Run/Delete:AWS-SSO-Jenkins-User"
-            - "Run/Replay:AWS-SSO-Jenkins-User"
-            - "Run/Update:AWS-SSO-Jenkins-User"
-            - "SCM/Tag:AWS-SSO-Jenkins-User"
-            - "View/Configure:AWS-SSO-Jenkins-User"
-            - "View/Create:AWS-SSO-Jenkins-User"
-            - "View/Delete:AWS-SSO-Jenkins-User"
-            - "View/Read:AWS-SSO-Jenkins-User"
+        loggedInUsersCanDoAnything:
+          allowAnonymousRead: false
+      # authorizationStrategy: |-
+      #     globalMatrix:
+      #       permissions:
+      #       - "Credentials/View:build-user-auto-ro"
+      #       - "Job/Build:build-user-auto-ro"
+      #       - "Job/Cancel:build-user-auto-ro"
+      #       - "Job/Configure:build-user-auto-ro"
+      #       - "Job/Create:build-user-auto-ro"
+      #       - "Job/Delete:build-user-auto-ro"
+      #       - "Job/Move:build-user-auto-ro"
+      #       - "Job/Read:build-user-auto-ro"
+      #       - "Job/Workspace:build-user-auto-ro"
+      #       - "Lockable Resources/View:build-user-auto-ro"
+      #       - "Overall/Administer:build-user-auto-admin"
+      #       - "Overall/Read:authenticated"
+      #       - "Run/Delete:build-user-auto-ro"
+      #       - "Run/Replay:build-user-auto-ro"
+      #       - "Run/Update:build-user-auto-ro"
+      #       - "SCM/Tag:build-user-auto-ro"
+      #       - "View/Configure:build-user-auto-ro"
+      #       - "View/Create:build-user-auto-ro"
+      #       - "View/Delete:build-user-auto-ro"
+      #       - "View/Read:build-user-auto-ro"
     #    loggedInUsersCanDoAnything:
     #      allowAnonymousRead: false
     # Optionally specify additional init-containers
