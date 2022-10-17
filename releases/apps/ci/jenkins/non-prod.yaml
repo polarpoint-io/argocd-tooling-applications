@@ -150,7 +150,7 @@ values: |
         httpGet:
           path: '{{ default "" .Values.controller.jenkinsUriPrefix }}/login'
           port: http
-        periodSeconds: 10
+        periodSeconds: 20
         timeoutSeconds: 5
         failureThreshold: 12
       livenessProbe:
@@ -158,21 +158,21 @@ values: |
         httpGet:
           path: '{{ default "" .Values.controller.jenkinsUriPrefix }}/login'
           port: http
-        periodSeconds: 10
+        periodSeconds: 20
         timeoutSeconds: 5
         # If Startup Probe is not supported on your Kubernetes cluster, you might want to use "initialDelaySeconds" instead.
         # It delays the initial liveness probe while Jenkins is starting
-        initialDelaySeconds: 60
+        initialDelaySeconds: 180
       readinessProbe:
         failureThreshold: 3
         httpGet:
           path: '{{ default "" .Values.controller.jenkinsUriPrefix }}/login'
           port: http
-        periodSeconds: 10
+        periodSeconds: 20
         timeoutSeconds: 5
         # If Startup Probe is not supported on your Kubernetes cluster, you might want to use "initialDelaySeconds" instead.
         # It delays the initial readyness probe while Jenkins is starting
-        initialDelaySeconds: 60
+        initialDelaySeconds: 180
     # PodDisruptionBudget config
     podDisruptionBudget:
       enabled: false
