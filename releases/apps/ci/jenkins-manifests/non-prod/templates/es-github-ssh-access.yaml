@@ -25,7 +25,7 @@ spec:
   data:
     - secretKey: username
       remoteRef:
-        key: jenkins-credentials
+        key: github-credentials
         property: github-ssh-access-username
     - secretKey: privateKey
       remoteRef:
