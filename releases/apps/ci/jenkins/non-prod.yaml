@@ -492,7 +492,7 @@ values: |
     #     // Configure the SCM
     #     // -----------------
 
-    #     def projectURL = "https://github.com/polarpoint-io/devops-groovy-jenkins-pipelines.git"
+    #     def projectURL = "https://github.com/polarpoint-io/groovy-jenkins-pipelines.git"
     #     // We are using a predefined user id (srv-jenkins). You can change it in the global config.
     #     List<UserRemoteConfig> user = Collections.singletonList(new UserRemoteConfig(projectURL, '', '', 'github-ssh-access'))
     #     List<BranchSpec> branches = Collections.singletonList(new BranchSpec("refs/heads/main"))
@@ -592,7 +592,7 @@ values: |
                     git {
                         id = 'seed-job'
                         remote {
-                          url = 'git@github.com:polarpoint-io/devops-groovy-jenkins-pipelines.git'
+                          url = 'git@github.com:polarpoint-io/groovy-jenkins-pipelines.git'
                           credentials = "github-ssh-access"
                           }
                         
