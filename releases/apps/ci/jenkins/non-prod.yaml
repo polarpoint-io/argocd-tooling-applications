@@ -584,7 +584,7 @@ values: |
       configScripts:
         security: |
           jenkins:
-            systemMessage: Post Office Continuous Integration. Please see <a href=\"https://pol-jira.atlassian.net/wiki/spaces/DO/pages/14450801/Jenkins+with+JCasC\">Jenkins JCasC</a> for more details.
+            systemMessage: Polarpoint Continuous Integration. Please see <a href=\"https://polarpoint.atlassian.net/wiki/spaces/DO/pages/14450801/Jenkins+with+JCasC\">Jenkins JCasC</a> for more details.
           jobs:
             - script: |
                 freeStyleJob('seed-job') {
@@ -607,7 +607,41 @@ values: |
                       triggers {
                           cron('@midnight')
                         }
-                }                           
+                }
+          unclassified:
+            githubpluginconfig:
+              configs:
+                - name: "GitHub"
+                  apiUrl: "https://github.com/api/v3"
+                  clientCacheSize: 50
+                  credentialsId: "github-personal-access-token"
+            gitscm:
+              globalConfigName: jenkins
+              globalConfigEmail: jenkins@domain.local
+              createAccountBasedOnEmail: true
+            globalLibraries:
+                  libraries:
+                    - name: "pipeline-library"
+                      defaultVersion: "master"
+                      retriever:
+                        modernSCM:
+                          scm:
+                            git:
+                              remote: git@github.com:polarpoint-io/devops-groovy-jenkins-shared-library.git
+                              credentialsId: "github-ssh-access"
+                              traits:
+                              - "gitBranchDiscovery"
+            globalSettings:
+            simple-theme-plugin:
+              elements:
+              - cssUrl:
+                  url: "https://tobix.github.io/jenkins-neo2-theme/dist/neo-light.css"                                                        
+            sonarGlobalConfiguration:
+              buildWrapperEnabled: true
+              installations:
+                - name: "sonarQubeDev"
+                  serverUrl: "http://sonarqube-sonarqube.continuous-integration.svc.cluster.local:9000"
+                  credentialsId: "sonarqube-api-token"                             
       #  welcome-message: |
       #    jenkins:
       #      systemMessage: Welcome to our CI\CD server.  This Jenkins is configured and managed 'as code'.
