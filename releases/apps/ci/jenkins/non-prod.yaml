@@ -259,7 +259,7 @@ values: |
       - workflow-aggregator:2.6
       - workflow-job:1145.v7f2433caa07f
       - git:4.11.0
-      - configuration-as-code:1414.v878271fc496f
+      - configuration-as-code:1512.vb_79d418d5fc8
       - credentials-binding:523.vd859a_4b_122e6
       - oic-auth:1.8
     # Set to false to download the minimum required version of all dependencies.
@@ -276,7 +276,6 @@ values: |
       - ansicolor:1.0.1
       - antisamy-markup-formatter:2.7
       - apache-httpcomponents-client-4-api:4.5.13-1.0
-      - artifactory:3.15.4
       - authentication-tokens:1.4
       - badge:1.9.1
       - block-queued-job:0.2.0
@@ -332,7 +331,6 @@ values: |
       - handlebars:1.1.1
       - handy-uri-templates-2-api:2.1.8-1.0
       - htmlpublisher:1.25
-      - icon-shim:3.0.0
       - ignore-committer-strategy:1.0.4
       - jackson2-api:2.13.3-285.vc03c0256d517
       - jacoco:3.3.0
@@ -353,9 +351,11 @@ values: |
       - mailer:408.vd726a_1130320
       - matrix-auth:2.6.8
       - matrix-project:758.v7a_ea_491852f3
+      - mattermost:3.1.1
       - maven-plugin:3.8
       - mercurial:2.15
       - momentjs:1.1.1
+      - nexus-jenkins-plugin:3.16.449.v50228c7ca_222
       - okhttp-api:4.9.3-105.vb96869f8ac3a
       - Office-365-Connector:4.13.2
       - opentelemetry:2.5.1
@@ -381,7 +381,7 @@ values: |
       - script-security:1138.v8e727069a_025
       - simple-theme-plugin:0.6
       - slack:2.43
-      - snakeyaml-api:1.29.1
+      - snakeyaml-api:1.32-86.ve3f030a_75631
       - sonar:2.14
       - sonar-quality-gates:1.3.1
       - sse-gateway:1.24
