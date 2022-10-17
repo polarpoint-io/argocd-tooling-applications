@@ -16,3 +16,4 @@ spec:
             name: jenkins-non-prod
             port:
               number: 8080
+    host: build.polarpoint.io
