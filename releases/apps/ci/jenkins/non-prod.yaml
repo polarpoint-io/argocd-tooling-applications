@@ -119,7 +119,7 @@ values: |
     targetPort: 8080
     # For minikube, set this to NodePort, elsewhere use LoadBalancer
     # Use ClusterIP if your setup includes ingress controller
-    serviceType: NodePort
+    serviceType: ClusterIP
     # serviceExternalTrafficPolicy:
     # Jenkins controller service annotations
     serviceAnnotations: {}
