@@ -305,7 +305,7 @@ values: |
       - branch-api:2.1046.v0ca_37783ecc5
       - build-monitor-plugin:1.13+build.202203020040
       - cloudbees-bitbucket-branch-source:757.vddedc5f2589a_
-      - cloudbees-folder:6.722.v8165b_a_cf25e9
+      - cloudbees-folder:6.740.ve4f4ffa_dea_54
       - code-coverage-api:2.0.4
       - command-launcher:1.6
       - credentials:1139.veb_9579fca_33b_
@@ -378,7 +378,7 @@ values: |
       - popper-api:1.16.1-2
       - pubsub-light:1.16
       - scm-api:621.vda_a_b_055e58f7
-      - script-security:1183.v774b_0b_0a_a_451
+      - script-security:1184.v85d16b_d851b_3
       - simple-theme-plugin:0.6
       - slack:2.43
       - snakeyaml-api:1.32-86.ve3f030a_75631
@@ -391,12 +391,12 @@ values: |
       - timestamper:1.11.7
       - token-macro:308.v4f2b_ed62b_b_16
       - trilead-api:1.67.vc3938a_35172f
-      - variant:1.4
+      - variant:59.vf075fe829ccb
       - warnings-ng:9.11.1
       - windows-slaves:1.8.1
       - workflow-api:1192.v2d0deb_19d212
       - workflow-basic-steps:2.24
-      - workflow-cps:2802.v5ea_628154b_c2
+      - workflow-cps:2803.v1a_f77ffcc773
       - workflow-cps-global-lib:588.v576c103a_ff86
       - workflow-cps-global-lib-http:2.0.0
       - workflow-durable-task-step:2.40
