@@ -5,6 +5,7 @@ metadata:
   name: backstage-kubernetes-authentication
   namespace: platform
 spec:
+  refreshInterval: 24h0m0s
   data:
     - secretKey: K8S_TOKEN
       remoteRef:

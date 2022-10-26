@@ -5,7 +5,7 @@ metadata:
   name: gcp-account-creds
   namespace: iac
 spec:
-  refreshInterval: 24h           # rate SecretManager pulls GCPSM
+  refreshInterval: 24h0m0s           # rate SecretManager pulls GCPSM
   secretStoreRef:
     kind: ClusterSecretStore
     name: cluster-secrets-store               # name of the SecretStore (or kind specified)
