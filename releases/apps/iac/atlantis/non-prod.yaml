@@ -317,7 +317,6 @@ values: |
      data:
        config.sh: |-
          #!/bin/sh
-         env;
          echo " Setting git ssh keys";
          ATLANTIS_HOME=/home/atlantis
            if [ ! -d "$ATLANTIS_HOME/.ssh" ]; then
