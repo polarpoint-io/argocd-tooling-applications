@@ -298,7 +298,7 @@ values: |
     - name: gitconfig
       configMap:
         name: "{{ .Release.Name }}-git-cm"
-        defaultMode: 640
+        defaultMode: 0640
 
   # Optionally specify additional volume mounts for the container.
   extraVolumeMounts:
