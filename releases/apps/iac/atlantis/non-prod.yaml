@@ -319,7 +319,7 @@ values: |
          #!/bin/sh
          env;
          echo " Setting git ssh keys";
-         ATLANTIS_HOME=/home/bainss/atlantis
+         ATLANTIS_HOME=/home/atlantis
            if [ ! -d "$ATLANTIS_HOME/.ssh" ]; then
              mkdir "$ATLANTIS_HOME/.ssh"
            fi
