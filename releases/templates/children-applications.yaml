@@ -18,8 +18,6 @@ spec:
 {{- if $appConfig.chart.path }}
     path: {{ $appConfig.chart.path }}
     repoURL: {{ $appConfig.chart.url }}
-    directory:
-      recurse: {{ $appConfig.chart.recurseDirectory | default "false" }}
 {{- else }}
     chart: {{ $appConfig.chart.name }}
     repoURL: {{ $appConfig.chart.url }}
