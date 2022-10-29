@@ -127,11 +127,11 @@ values: |
     extraAppConfig: []
     extraEnvVars:
       - name: APP_CONFIG_backend_baseUrl
-        value: https://developer.polarpoint.io
+        value: https://platform.polarpoint.io
       - name: APP_CONFIG_backend_origin
-        value: https://backstage.polarpoint.io
+        value: https://platform.polarpoint.io
       - name: APP_CONFIG_app_baseUrl
-        value: https://developer.polarpoint.io
+        value: https://platform.polarpoint.io
       - name: POSTGRES_HOST
         value: "backstage-postgresql-non-prod"
       # - name: POSTGRES_USER
