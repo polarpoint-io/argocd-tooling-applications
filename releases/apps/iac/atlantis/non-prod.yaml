@@ -315,29 +315,29 @@ values: |
   #      securityPolicy:
   #        name: "gcp-cloud-armor-policy-test"
 
-  initContainers:
-  - name: init
-    image: alpine:3.16.2
-    command: 
-      - "/bin/sh"
-      - "-c"
-      - >
-        env;
-        echo " Setting git ssh keys";
-        if [ -n "$GITHUB_USER_SSH_KEY" ] && [ -f "$GITHUB_USER_SSH_KEY" ]; then
-        if [ ! -d "/home/atlantis/.ssh" ]; then
-        echo " Creating .ssh";
-        mkdir "/home/atlantis/.ssh";
-        fi;
-        if [ ! -f "/home/atlantis/.ssh/id_rsa" ]; then
-        echo " Copying private key";
-        echo "$GITHUB_USER_SSH_KEY" > "/home/atlantis/.ssh/id_rsa";
-        chmod 600 "/home/atlantis/.ssh/id_rsa";
-        chown atlantis:atlantis "/home/atlantis/.ssh/id_rsa";
-        chown atlantis:atlantis "/home/atlantis/.ssh/known_hosts";
-        echo " Completed private key";
-        fi
-        fi
+  initContainers: []
+  # - name: init
+  #   image: alpine:3.16.2
+  #   command: 
+  #     - "/bin/sh"
+  #     - "-c"
+  #     - >
+  #       env;
+  #       echo " Setting git ssh keys";
+  #       if [ -n "$GITHUB_USER_SSH_KEY" ] && [ -f "$GITHUB_USER_SSH_KEY" ]; then
+  #       if [ ! -d "/home/atlantis/.ssh" ]; then
+  #       echo " Creating .ssh";
+  #       mkdir "/home/atlantis/.ssh";
+  #       fi;
+  #       if [ ! -f "/home/atlantis/.ssh/id_rsa" ]; then
+  #       echo " Copying private key";
+  #       echo "$GITHUB_USER_SSH_KEY" > "/home/atlantis/.ssh/id_rsa";
+  #       chmod 600 "/home/atlantis/.ssh/id_rsa";
+  #       chown atlantis:atlantis "/home/atlantis/.ssh/id_rsa";
+  #       chown atlantis:atlantis "/home/atlantis/.ssh/known_hosts";
+  #       echo " Completed private key";
+  #       fi
+  #       fi
 
   # hostAliases:
   #   - hostnames:
