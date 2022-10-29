@@ -132,7 +132,6 @@ spec:
           lifecycle:
             postStart:
               exec:
-                command: ["/bin/sh", "-c", ""]
                 command: 
                   - "/bin/sh"
                   - "-c"
