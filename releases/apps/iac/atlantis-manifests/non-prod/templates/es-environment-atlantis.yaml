@@ -25,4 +25,4 @@ spec:
     - secretKey: github_ssh_command
       remoteRef:
         key: atlantis-credentials
-        property: github-ssh-command
+        property: git-ssh-command
