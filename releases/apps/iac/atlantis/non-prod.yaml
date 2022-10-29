@@ -375,7 +375,7 @@ values: |
   #   readOnlyRootFilesystem: true
 
   servicemonitor:
-    enabled: true
+    enabled: false
 
   # Enable this if you're using Google Managed Prometheus
   podMonitor:
