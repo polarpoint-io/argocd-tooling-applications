@@ -303,7 +303,7 @@ values: |
   # Optionally specify additional volume mounts for the container.
   extraVolumeMounts:
     - name: gitconfig
-      mountPath: /opt/gitconfig/
+      mountPath: /opt/gitconfig
 
 
   extraManifests:
@@ -313,7 +313,7 @@ values: |
        name: "{{ .Release.Name }}-git-cm"
      data:
        config.sh: |-
-         #!/bin/bash
+         #!/bin/sh
          env;
          echo " Setting git ssh keys";
          ATLANTIS_HOME=/home/bainss/atlantis
@@ -332,9 +332,9 @@ values: |
   initContainers: 
   - name: init
     image: busybox:1.35.0
-    command: ['./opt/gitconfig/config.sh']
+    command: ['/bin/sh', '-c', './opt/gitconfig/config.sh']
     volumeMounts:
-      - mountPath: /opt/gitconfig/
+      - mountPath: /opt/gitconfig
         name: gitconfig
 
   # hostAliases:
