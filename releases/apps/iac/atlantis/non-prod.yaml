@@ -332,7 +332,7 @@ values: |
   initContainers: 
   - name: init
     image: busybox:1.35.0
-    command: ['/bin/sh', '-c', './opt/gitconfig/config.sh']
+    command: ['/bin/sh', '-c', 'config.sh']
     volumeMounts:
       - mountPath: /opt/gitconfig
         name: gitconfig
