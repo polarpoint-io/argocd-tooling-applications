@@ -336,6 +336,7 @@ values: |
     volumeMounts:
       - mountPath: /opt/gitconfig
         name: gitconfig
+        subPath: config.sh
 
   # hostAliases:
   #   - hostnames:
