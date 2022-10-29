@@ -5,7 +5,7 @@ metadata:
   name: atlantis-environment-secrets
   namespace: infra
 spec:
-  refreshInterval: 1m0s
+  refreshInterval: 24h0m0s
   secretStoreRef:
     name: cluster-secrets-store
     kind: ClusterSecretStore
@@ -16,13 +16,13 @@ spec:
         GITHUB_USER_SSH_KEY: >-
           {{ printf "{{ .github_ssh | toString }}" }}
         GIT_SSH_COMMAND: >-
-          {{ printf "{{ .github_webhook_secret | toString }}" }}
+          {{ printf "{{ .github_ssh_command | toString }}" }}
   data:
     - secretKey: github_ssh
       remoteRef:
         key: atlantis-credentials
-        property: GITHUB_USER_SSH_KEY
-    - secretKey: github_webhook_secret
+        property: github-ssh-access-private-key
+    - secretKey: github_ssh_command
       remoteRef:
         key: atlantis-credentials
-        property: GIT_SSH_COMMAND
+        property: github-ssh-command

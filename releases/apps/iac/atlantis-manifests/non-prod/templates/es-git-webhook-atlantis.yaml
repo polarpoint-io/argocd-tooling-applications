@@ -5,7 +5,7 @@ metadata:
   name: git-webhook-atlantis
   namespace: infra
 spec:
-  refreshInterval: 1m0s
+  refreshInterval: 24h0m0s
   secretStoreRef:
     name: cluster-secrets-store
     kind: ClusterSecretStore
@@ -21,7 +21,7 @@ spec:
     - secretKey: github_token
       remoteRef:
         key: atlantis-credentials
-        property: github-token
+        property: github-personal-access-token
     - secretKey: github_webhook_secret
       remoteRef:
         key: atlantis-credentials
