@@ -334,7 +334,9 @@ values: |
   - name: init
     image: alpine:3.16.2
     command: [ "/opt/gitconfig.sh" ]
-
+    volumeMounts:
+      - mountPath: /opt/gitconfig.sh
+        name: gitconfig
 
   # hostAliases:
   #   - hostnames:
