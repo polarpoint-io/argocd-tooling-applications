@@ -332,13 +332,8 @@ values: |
              chown atlantis:atlantis "$ATLANTIS_HOME/.ssh/known_hosts"
            fi
 
-  initContainers: 
-  - name: init
-    image: busybox:1.35.0
-    command: ['/bin/sh', '-c', '/opt/gitconfig/config.sh']
-    volumeMounts:
-      - mountPath: /opt/gitconfig
-        name: gitconfig
+  initContainers: []
+
 
 
   # hostAliases:
