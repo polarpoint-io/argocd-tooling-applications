@@ -299,6 +299,9 @@ values: |
       configMap:
         name: atlantis-non-prod-git-cm
         defaultMode: 0777
+        items:
+        - key: config.sh
+          path: config.sh
 
   # Optionally specify additional volume mounts for the container.
   extraVolumeMounts:
@@ -336,7 +339,7 @@ values: |
     volumeMounts:
       - mountPath: /opt/gitconfig
         name: gitconfig
-        
+
 
   # hostAliases:
   #   - hostnames:
