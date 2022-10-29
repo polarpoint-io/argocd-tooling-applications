@@ -303,8 +303,9 @@ values: |
   # Optionally specify additional volume mounts for the container.
   extraVolumeMounts:
     - name: gitconfig
-      mountPath: /opt/gitconfig.sh
-
+      mountPath: /opt/gitconfig
+      subPath: config.sh
+      readOnly: false
 
   extraManifests:
    - apiVersion: v1
@@ -312,7 +313,7 @@ values: |
      metadata:
        name: "{{ .Release.Name }}-git-cm"
      data:
-       gitconfig.sh: |-
+       config.sh: |-
          env;
          echo " Setting git ssh keys";
          if [ -n "$GITHUB_USER_SSH_KEY" ] && [ -f "$GITHUB_USER_SSH_KEY" ]; then
@@ -335,7 +336,7 @@ values: |
     image: alpine:3.16.2
     command: [ "/bin/sh -c /opt/gitconfig.sh" ]
     volumeMounts:
-      - mountPath: /opt/gitconfig.sh
+      - mountPath: /opt/gitconfig
         name: gitconfig
 
   # hostAliases:
