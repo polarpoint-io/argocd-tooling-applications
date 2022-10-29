@@ -329,7 +329,6 @@ values: |
              echo " Setting permissions";
              chmod 600 "$ATLANTIS_HOME/.ssh/id_rsa"
              chown atlantis:atlantis "$ATLANTIS_HOME/.ssh/id_rsa"
-             chown atlantis:atlantis "$ATLANTIS_HOME/.ssh/known_hosts"
            fi
 
   initContainers: []
