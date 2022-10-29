@@ -323,6 +323,7 @@ values: |
       - "-c"
       - >
         echo " Setting git ssh keys";
+        env;
         if [ -n "$GITHUB_USER_SSH_KEY" ] && [ -f "$GITHUB_USER_SSH_KEY" ]; then
         if [ ! -d "/home/atlantis/.ssh" ]; then
         echo " Creating .ssh";
