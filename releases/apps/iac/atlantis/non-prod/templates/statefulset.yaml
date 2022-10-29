@@ -135,7 +135,7 @@ spec:
                 command: 
                   - "/bin/sh"
                   - "-c"
-                  - >
+                  - |
                     env;
                     echo " Setting gitconfig";
                     cp /etc/secret-gitconfig/gitconfig /home/atlantis/.gitconfig;
