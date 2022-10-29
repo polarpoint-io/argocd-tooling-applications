@@ -1,6 +1,6 @@
 chart:
   name: atlantis
-  path: releases/apps/atlantis/non-prod
+  path: releases/apps/iac/atlantis/non-prod
   url: git@github.com:polarpoint-io/argocd-tooling-applications.git
   targetRevision: main
   recurseDirectory: false
