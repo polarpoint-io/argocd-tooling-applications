@@ -2,7 +2,7 @@
 ---
 chart:
   name: atlantis-manifests
-  path: releases/apps/atlantis-manifests/prod
+  path: releases/apps/atlantis-manifests/non-prod
   url: git@github.com:polarpoint-io/argocd-tooling-applications.git
   targetRevision: main
   recurseDirectory: false
