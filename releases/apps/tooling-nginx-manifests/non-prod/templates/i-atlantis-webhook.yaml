@@ -5,6 +5,7 @@ metadata:
   namespace: infra
   annotations:
     kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt-production
 spec:
   ingressClassName: nginx
   rules:
@@ -21,4 +22,3 @@ spec:
   tls:
   - hosts:
     - infra.polarpoint.io
-    secretName: nginx-ssl-atlantis
