@@ -25,7 +25,7 @@ values: |
 
   # Replace this with your own repo allowlist:
   orgAllowlist: github.com/polarpoint-io/*
-  logLevel: "info"
+  logLevel: "debug"
 
   # If using GitHub, specify like the following:
   github:
