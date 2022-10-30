@@ -29,7 +29,7 @@ values: |
 
   # If using GitHub, specify like the following:
   github:
-    user: github-argocd-sa
+    user: bainss
 
 
 
