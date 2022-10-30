@@ -21,3 +21,4 @@ spec:
   tls:
   - hosts:
     - polarpoint-io.bainss.eu1.kubegateway.com
+    secretName: nginx-ssl-atlantis-alt
