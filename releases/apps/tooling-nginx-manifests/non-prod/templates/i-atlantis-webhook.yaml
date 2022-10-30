@@ -17,3 +17,7 @@ spec:
             port:
               number: 80
     host: infra.polarpoint.io
+  tls:
+  - hosts:
+    - infra.polarpoint.io
+    secretName: nginx-ssl-atlantis
