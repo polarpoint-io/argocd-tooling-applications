@@ -4,9 +4,9 @@ metadata:
   name: atlantis-ingress-alt
   namespace: infra
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-production
+    cert-manager.io/cluster-issuer: "letsencrypt-production"
+    kubernetes.io/ingress.class: "nginx"
 spec:
-  ingressClassName: nginx
   rules:
   - http:
       paths:
