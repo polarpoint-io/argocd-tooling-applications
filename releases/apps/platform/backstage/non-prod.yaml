@@ -102,8 +102,8 @@ values: |
   backstage:
     image:
       registry: "polarpoint"
-      repository: "backstage"
-      tag: "0.2.12"
+      repository: "backstage-app"
+      tag: "1.2.0"
       ## Specify a imagePullPolicy
       ## Defaults to 'Always' if image tag is 'latest', else set to 'IfNotPresent'
       ## ref: https://kubernetes.io/docs/user-guide/images/#pre-pulling-images
