@@ -1,7 +1,7 @@
 chart:
   name: backstage
-  url: https://vinzscam.github.io/backstage-chart
-  targetRevision: 0.3.0
+  url: https://github.com/backstage/charts.git
+  targetRevision: 0.5.2
   namespace: platform
 
 labels:

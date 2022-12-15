@@ -1,9 +1,9 @@
 apiVersion: v2
-name: keycloak-manifests
-description: Custom manifests for Keycloak
+name: backstage-manifests
+description: Custom manifests for Backstage
 
 type: application
 
 version: 1.0.0
 
-appVersion: "15.0.2"
+appVersion: "1.0.0"
