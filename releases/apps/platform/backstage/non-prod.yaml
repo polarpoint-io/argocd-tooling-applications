@@ -1,7 +1,7 @@
 chart:
   name: backstage
   url: https://polarpoint-io.github.io/charts
-  targetRevision: 0.7.1
+  targetRevision: 0.11.2
   namespace: platform
 
 labels:
