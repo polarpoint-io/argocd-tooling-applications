@@ -370,7 +370,7 @@ values: |
       - pipeline-model-definition:1.9.3
       - pipeline-model-extensions:1.9.3
       - pipeline-rest-api:2.28
-      - pipeline-stage-step:291.vf0a8a7aeeb50
+      - pipeline-stage-step:293.v200037eefcd5
       - pipeline-stage-tags-metadata:1.9.3
       - pipeline-stage-view:2.28
       - plain-credentials:1.8
