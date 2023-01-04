@@ -2,7 +2,7 @@
 apiVersion: external-secrets.io/v1beta1
 kind: ExternalSecret
 metadata:
-  name: github-ssh-access
+  name: bitbucket-ssh-access
   namespace: ci
 spec:
   refreshInterval: 24h0m0s
@@ -10,13 +10,13 @@ spec:
     name: cluster-secrets-store
     kind: ClusterSecretStore
   target:
-    name: git-github-ssh-access
+    name: git-bitbucket-ssh-access
     template:
       metadata:
         labels:
           "jenkins.io/credentials-type": "basicSSHUserPrivateKey"
         annotations:
-          "jenkins.io/credentials-description": "github-ssh-access key"
+          "jenkins.io/credentials-description": "bitbucket-ssh-access key"
       data:
         username: >- 
           {{ printf "{{ .username | toString }}" }}
@@ -25,9 +25,9 @@ spec:
   data:
     - secretKey: username
       remoteRef:
-        key: github-credentials
-        property: github-ssh-access-username
+        key: bitbucket-credentials
+        property: bitbucket-ssh-access-username
     - secretKey: privateKey
       remoteRef:
-        key: github-credentials
-        property: github-ssh-access-private-key
+        key: bitbucket-credentials
+        property: bitbucket-ssh-access-private-key
