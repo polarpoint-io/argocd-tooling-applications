@@ -1150,20 +1150,6 @@ values: |
                   mountPath: /var/run
                 - name: docker-harbor-ca-cert
                   mountPath: /etc/docker/certs.d/image.polarpoint.io
-      versioner: |
-        - name: versioner
-          label: versioner
-          containers:
-            - name: maven-git-client
-              image: image.polarpoint.io/image/maven-git-client:0.1.0-FINAL
-              command: "/bin/sh -c"
-              args: "cat"
-              ttyEnabled: true
-              privileged: true
-              resourceRequestCpu: "400m"
-              resourceRequestMemory: "512Mi"
-              resourceLimitCpu: "1"
-              resourceLimitMemory: "1024Mi"
             - name: node-16
               image: image.polarpoint.io/image/node-16:0.1.0-FINAL
               command: "/bin/sh -c"
@@ -1379,12 +1365,12 @@ values: |
               resourceLimitMemory: "2024Mi"               
           imagePullSecrets:
             - name: docker-registry-credentials            
-      maven-git-client: |
-        - name: maven-git-client
-          label: maven-git-client
+      scala-sbt: |
+        - name: scala-sbt
+          label: scala-sbt
           containers:
-            - name: maven-git-client
-              image: image.polarpoint.io/image/maven-git-client:0.1.0-FINAL
+            - name: scala-sbt
+              image: sbtscala/scala-sbt:openjdk-18.0.2.1_1.8.1_2.13.10
               command: "/bin/sh -c"
               args: "cat"
               ttyEnabled: true
