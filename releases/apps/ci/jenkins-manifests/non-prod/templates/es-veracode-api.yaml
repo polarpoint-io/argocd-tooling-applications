@@ -1,0 +1,26 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: veracode-api-token
+  namespace: ci
+spec:
+  refreshInterval: 1m
+  secretStoreRef:
+    name: vault-backend
+    kind: ClusterSecretStore
+  target:
+    name: veracode-api-token
+    template:
+      metadata:
+        labels:
+          "jenkins.io/credentials-type": "secretText"
+        annotations:
+          "jenkins.io/credentials-description": "veracode api token"
+      data:
+        text: >-
+          {{ printf "{{ .password | toString }}" }}
+  data:
+    - secretKey: password
+      remoteRef:
+        key: jenkins-credentials
+        property: veracode-api-token
