@@ -22,4 +22,4 @@ spec:
   data:
     - secretKey: password
       remoteRef:
-        key: jveracode-api-token
+        key: veracode-api-token
