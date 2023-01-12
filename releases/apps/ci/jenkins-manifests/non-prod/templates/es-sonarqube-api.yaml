@@ -1,0 +1,27 @@
+---
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: sonarqube-api-credentials
+  namespace: ci
+spec:
+  refreshInterval: 24h0m0s
+  secretStoreRef:
+    name: cluster-secrets-store
+    kind: ClusterSecretStore
+  target:
+    name: sonarqube-api-token
+    template:
+      metadata:
+        labels:
+          "jenkins.io/credentials-type": "usernamePassword"
+        annotations:
+          "jenkins.io/credentials-description": sonarqube api token"
+      data:
+        username: >- 
+          {{ printf "{{ .token | toString }}" }}
+
+  data:
+    - secretKey: token
+      remoteRef:
+        key: sonarqube-api-token
