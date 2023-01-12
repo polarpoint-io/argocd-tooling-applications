@@ -14,7 +14,7 @@ spec:
     template:
       metadata:
         labels:
-          "jenkins.io/credentials-type": "usernamePassword"
+          "jenkins.io/credentials-type": "secretText"
         annotations:
           "jenkins.io/credentials-description": sonarqube api token"
       data:
