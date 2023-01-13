@@ -47,7 +47,7 @@ values: |
     customJenkinsLabels: []
     # configAutoReload requires UseSecurity is set to true:
     adminSecret: true
-    useSecurity: true
+    #useSecurity: true
 
     # enables configuration done directly via XML files
     enableXmlConfig: false
