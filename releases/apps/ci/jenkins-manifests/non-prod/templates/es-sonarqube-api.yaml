@@ -23,5 +23,4 @@ spec:
   data:
     - secretKey: password
       remoteRef:
-        key: jenkins-credentials
-        property: sonarqube-api-token
+        key: sonarqube-api-token
