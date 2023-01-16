@@ -16,12 +16,12 @@ spec:
         labels:
           "jenkins.io/credentials-type": "secretText"
         annotations:
-          "jenkins.io/credentials-description": sonarqube api token"
+          "jenkins.io/credentials-description": "sonarqube api token"
       data:
-        username: >- 
-          {{ printf "{{ .token | toString }}" }}
-
+        text: >-
+          {{ printf "{{ .password | toString }}" }}
   data:
-    - secretKey: token
+    - secretKey: password
       remoteRef:
-        key: sonarqube-api-token
+        key: jenkins-credentials
+        property: sonarqube-api-token
