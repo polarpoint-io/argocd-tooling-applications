@@ -1,0 +1,9 @@
+chart:
+  name: toolhive-operator-crds
+  url: oci://ghcr.io/stacklok/toolhive
+  targetRevision: 0.29.1
+  namespace: toolhive-system
+
+labels:
+  service: tooling
+  app: toolhive

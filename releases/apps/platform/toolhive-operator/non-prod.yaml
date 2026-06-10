@@ -1,0 +1,13 @@
+chart:
+  name: toolhive-operator
+  url: oci://ghcr.io/stacklok/toolhive
+  targetRevision: 0.29.1
+  namespace: toolhive-system
+
+labels:
+  service: tooling
+  app: toolhive
+
+values: |
+  operator:
+    replicaCount: 1
