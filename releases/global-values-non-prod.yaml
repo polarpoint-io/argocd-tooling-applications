@@ -5,7 +5,7 @@ env: non-prod
 project: tooling
 
 source:
-  server: https://kubernetes.default.svc
+  server: https://192.168.11.80:6443
   namespace: argocd
 
 
