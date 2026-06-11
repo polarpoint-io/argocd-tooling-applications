@@ -31,8 +31,14 @@ values: |
 
   secrets: {}   # secret object removed from chart; ESO provides postiz-secrets
 
+  global:
+    security:
+      allowInsecureImages: true
+
   postgresql:
     enabled: true
+    image:
+      repository: bitnamilegacy/postgresql
     auth:
       username: postiz
       database: postiz
@@ -43,6 +49,8 @@ values: |
 
   redis:
     enabled: true
+    image:
+      repository: bitnamilegacy/redis
     auth:
       enabled: false
     architecture: standalone
