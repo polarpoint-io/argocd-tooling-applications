@@ -37,6 +37,7 @@ values: |
 
   postgresql:
     enabled: true
+    fullnameOverride: postiz-postgresql
     image:
       repository: bitnamilegacy/postgresql
     auth:
@@ -49,6 +50,7 @@ values: |
 
   redis:
     enabled: true
+    fullnameOverride: postiz-redis
     image:
       repository: bitnamilegacy/redis
     auth:
