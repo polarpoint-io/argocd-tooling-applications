@@ -1,0 +1,4 @@
+apiVersion: v2
+name: postiz-manifests
+description: Postiz supporting manifests - ESO secrets, TLS proxy (tailscale device 'schedule'), certificate
+version: 0.1.0

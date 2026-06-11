@@ -1,0 +1,4 @@
+secretStore: cluster-secrets-store
+host: schedule.polarpoint.io
+issuer: letsencrypt-dns01
+postizService: postiz   # ClusterIP svc, port 80

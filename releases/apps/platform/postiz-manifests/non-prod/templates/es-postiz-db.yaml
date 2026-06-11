@@ -1,0 +1,17 @@
+apiVersion: external-secrets.io/v1
+kind: ExternalSecret
+metadata:
+  name: postiz-db
+  namespace: postiz
+spec:
+  refreshInterval: 5m
+  secretStoreRef:
+    name: {{ .Values.secretStore }}
+    kind: ClusterSecretStore
+  target:
+    name: postiz-db
+  data:
+    - secretKey: postgres-password
+      remoteRef: {key: postiz, property: db-password}
+    - secretKey: password
+      remoteRef: {key: postiz, property: db-password}
