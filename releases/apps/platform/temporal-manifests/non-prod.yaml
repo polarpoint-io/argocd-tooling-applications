@@ -1,0 +1,11 @@
+chart:
+  name: temporal-manifests
+  path: releases/apps/platform/temporal-manifests/non-prod
+  url: git@github.com:polarpoint-io/argocd-tooling-applications.git
+  targetRevision: main
+  recurseDirectory: false
+  namespace: postiz
+
+labels:
+  service: tooling
+  app: temporal

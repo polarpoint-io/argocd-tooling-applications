@@ -28,6 +28,7 @@ values: |
     BACKEND_INTERNAL_URL: "http://localhost:3000"
     NX_ADD_PLUGINS: "false"
     IS_GENERAL: "true"
+    TEMPORAL_WORKER_URL: "temporal-frontend:7233"
 
   secrets: {}   # secret object removed from chart; ESO provides postiz-secrets
 

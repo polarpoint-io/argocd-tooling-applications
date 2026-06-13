@@ -1,0 +1,4 @@
+apiVersion: v2
+name: temporal-manifests
+description: Temporal supporting manifests - namespace config for Postiz job scheduling
+version: 0.1.0
