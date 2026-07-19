@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: argocd-tooling-applications
+  description: ArgoCD child Application descriptors for the tooling (spoke) cluster — releases/apps/<category>/<app>/<env>.yaml.
+  annotations:
+    github.com/project-slug: polarpoint-io/argocd-tooling-applications
+spec:
+  type: infrastructure
+  owner: group:sre-team
+  lifecycle: production
