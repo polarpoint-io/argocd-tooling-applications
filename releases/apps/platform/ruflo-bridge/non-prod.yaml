@@ -1,0 +1,56 @@
+# Sourced from github.com/polarpoint-io/ruflo-bridge argocd/non-prod.yaml
+#
+# The bridge mounts .mcp.json from the ConfigMap the platform-agent-stack
+# chart renders (merged base MCP servers + selected ITSM provider). Sync
+# platform-agent-stack-non-prod first, or this pod stays in
+# ContainerCreating with no ConfigMap to mount.
+chart:
+  name: ruflo-bridge
+  url: git@github.com:polarpoint-io/ruflo-bridge.git
+  path: chart
+  targetRevision: main
+  namespace: agents
+
+labels:
+  service: tooling
+  app: ruflo-bridge
+
+values: |
+  image:
+    # Must stay >= 3.16.3. The chart refuses to render below that
+    # (CVE-2026-59726 — unauthenticated RCE in the MCP bridge).
+    tag: "3.30.2"
+
+  service:
+    type: ClusterIP
+
+  networkPolicy:
+    enabled: true
+    allowedNamespaces:
+      - agents
+    allowedPodLabels:
+      app.kubernetes.io/part-of: platform-agent-stack
+
+  keda:
+    enabled: true
+    minReplicas: 1
+    maxReplicas: 8
+    trigger:
+      # TODO(verify): assumes a Prometheus-visible ruflo_pending_tasks
+      # metric via kube-prometheus-stack. Confirm the metric exists once
+      # the swarm is running, and adjust serverAddress if it differs from
+      # the observability stack in argocd-foundational-applications.
+      serverAddress: http://kube-prometheus-stack-prometheus.observability.svc:9090
+
+  mcpConfig:
+    # Rendered by the platform-agent-stack chart, which merges the base
+    # servers with the selected ITSM provider. Sync that Application first.
+    #
+    # Name verified by rendering platform-agent-stack locally with its real
+    # ArgoCD release name: `helm template platform-agent-stack-non-prod .`
+    # -> fullname is "<release>-<chart-name>", so this is NOT the chart's
+    # own upstream default ("platform-agent-stack-mcp") - that assumes a
+    # release literally named "platform-agent-stack" with no "-non-prod"
+    # suffix. If the platform-agent-stack Application is ever renamed,
+    # this must be updated to match.
+    existingConfigMap: platform-agent-stack-non-prod-platform-agent-stack-mcp
