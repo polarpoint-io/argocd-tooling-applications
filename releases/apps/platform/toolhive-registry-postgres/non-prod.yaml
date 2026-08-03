@@ -22,3 +22,12 @@ values: |
   primary:
     persistence:
       size: 4Gi
+    initdb:
+      scripts:
+        # thv_user owns the DB but that alone doesn't grant CREATEROLE, which
+        # the registry server's first migration needs (it CREATE ROLE's an
+        # internal 'toolhive_registry_server' grants-holder role). Without
+        # this, migration #1 fails with "permission denied to create role"
+        # every time, on a totally fresh DB - discovered 2026-08-03.
+        grant-createrole.sql: |
+          ALTER ROLE thv_user CREATEROLE;
