@@ -9,6 +9,10 @@ kind: Application
 metadata:
   name: {{ $appConfig.chart.name }}-{{ $globalConfig.env }}
   namespace: {{ $globalConfig.source.namespace }}
+{{- if $appConfig.annotations }}
+  annotations:
+{{ $appConfig.annotations | toYaml | indent 4 }}
+{{- end }}
   labels:
     env: {{ $globalConfig.env }}
     app: {{ $appConfig.chart.name }}

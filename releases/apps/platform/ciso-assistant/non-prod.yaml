@@ -8,6 +8,9 @@ labels:
   service: tooling
   app: ciso-assistant
 
+annotations:
+  kargo.akuity.io/authorized-stage: "ciso-assistant-promotion:non-prod"
+
 # CISO Assistant (GRC/compliance platform) - https://github.com/intuitem/ciso-assistant-community
 # Official OCI Helm chart. Postgres is dedicated (see ciso-assistant-postgres), not the
 # chart's own deprecated bundled postgresql subchart. Qdrant/AI-chat left disabled (not needed).

@@ -22,6 +22,9 @@ labels:
   service: tooling
   app: ciso-assistant
 
+annotations:
+  kargo.akuity.io/authorized-stage: "ciso-assistant-promotion:prod"
+
 values: |
   fullnameOverride: ciso-assistant
 
