@@ -31,8 +31,15 @@ values: |
     allowedPodLabels:
       app.kubernetes.io/part-of: platform-agent-stack
 
+  # KEDA is not installed on the tooling cluster - ScaledObject CRD is
+  # missing, which fails the sync outright. Disabled for now; the chart
+  # falls back to a fixed replicaCount (1). To enable autoscaling later,
+  # install KEDA via GitOps first, then flip this on and fix the
+  # Prometheus serverAddress/metric below (also unverified - assumes a
+  # ruflo_pending_tasks metric that doesn't exist yet either).
+  replicaCount: 1
   keda:
-    enabled: true
+    enabled: false
     minReplicas: 1
     maxReplicas: 8
     trigger:
