@@ -1,6 +1,6 @@
 chart:
   name: toolhive-registry-server
-  url: ghcr.io/stacklok/toolhive-registry-server
+  url: ghcr.io/stacklok
   targetRevision: "1.5.0"
   namespace: toolhive-system
 
