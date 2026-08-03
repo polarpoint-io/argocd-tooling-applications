@@ -1,24 +1,17 @@
 chart:
-  name: postgresql
-  url: https://charts.bitnami.com/bitnami
-  targetRevision: "15.5.28"
+  name: ciso-assistant-postgres
+  path: releases/apps/platform/ciso-assistant-postgres/non-prod
+  url: git@github.com:polarpoint-io/argocd-tooling-applications.git
+  targetRevision: main
+  recurseDirectory: false
   namespace: ciso-assistant
 
 labels:
   service: tooling
   app: ciso-assistant
 
-# Dedicated Postgres for CISO Assistant (same bitnami/postgresql pattern already used by
-# backstage, postiz, and toolhive-registry-postgres in this org - the chart's own bundled
-# postgresql subchart is deprecated upstream).
-values: |
-  fullnameOverride: ciso-assistant-postgres
-  image:
-    repository: bitnamilegacy/postgresql
-  auth:
-    username: ciso-assistant
-    database: ciso-assistant
-    existingSecret: ciso-assistant-db
-  primary:
-    persistence:
-      size: 5Gi
+# Local wrapper chart (dependency on bitnami/postgresql), NOT a bare helm-repo
+# Application - the children-applications template names generated Applications
+# purely by `chart.name-env`, and toolhive-registry-postgres already claims
+# "postgresql-non-prod" (it also uses chart.name: postgresql). Wrapping like
+# postiz already does for its own bundled postgres avoids that name collision.
