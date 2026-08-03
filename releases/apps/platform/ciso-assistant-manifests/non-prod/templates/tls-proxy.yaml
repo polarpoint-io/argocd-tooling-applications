@@ -17,6 +17,14 @@ data:
         ssl_certificate_key /tls/tls.key;
         client_max_body_size 50m;
 
+        # Default 4-8k buffers are too small for this app's response headers
+        # (large Set-Cookie/session headers) - was causing "upstream sent too
+        # big header" -> 502 on /login. Bump both proxy and header buffers.
+        proxy_buffer_size 32k;
+        proxy_buffers 4 32k;
+        proxy_busy_buffers_size 64k;
+        large_client_header_buffers 4 32k;
+
         location /api/ {
           proxy_pass http://{{ .Values.backendService }}:80;
           proxy_set_header Host $host;
