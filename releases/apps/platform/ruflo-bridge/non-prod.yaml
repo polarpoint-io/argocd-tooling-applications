@@ -16,10 +16,12 @@ labels:
   app: ruflo-bridge
 
 values: |
-  image:
-    # Must stay >= 3.16.3. The chart refuses to render below that
-    # (CVE-2026-59726 — unauthenticated RCE in the MCP bridge).
-    tag: "3.30.2"
+  # image.repository/tag intentionally not overridden here - the chart's
+  # own values.yaml now points at ghcr.io/polarpoint-io/ruflo (built
+  # in-house; ghcr.io/ruvnet/ruflo never existed, verified via
+  # authenticated GHCR registry API) pinned to 3.34.0, which is >= the
+  # 3.16.3 floor (CVE-2026-59726 — unauthenticated RCE in the MCP
+  # bridge). Bump the chart default, not here, when a new image ships.
 
   service:
     type: ClusterIP

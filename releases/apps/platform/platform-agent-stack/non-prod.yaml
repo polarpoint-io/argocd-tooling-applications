@@ -2,8 +2,10 @@
 #
 # Schema matches releases/templates/children-applications.yaml: when
 # chart.path is set the source is treated as a git repo at that path.
-# This repo IS the chart — Chart.yaml sits at the root so .Files.Get can
-# read swarm/, policy/ and itsm-providers/.
+# The chart lives under charts/platform-agent-stack/ (not repo root -
+# root also holds the Dockerfile/CI that builds ghcr.io/polarpoint-io/ruflo,
+# see that repo's README). .Files.Get in the chart's templates reads
+# swarm/, policy/ and itsm-providers/ relative to that chart directory.
 #
 # Sync order matters: this chart publishes the merged .mcp.json ConfigMap
 # that ruflo-bridge mounts, so this Application must be healthy before the
@@ -11,7 +13,7 @@
 chart:
   name: platform-agent-stack
   url: git@github.com:polarpoint-io/platform-agent-stack.git
-  path: .
+  path: charts/platform-agent-stack
   targetRevision: main
   namespace: agents
 
@@ -23,8 +25,11 @@ values: |
   itsmProvider: freshservice
   llmProvider: modelplane
 
-  image:
-    tag: "3.30.2"
+  # image.repository/tag intentionally not overridden here - the chart's
+  # own values.yaml now points at ghcr.io/polarpoint-io/ruflo (built
+  # in-house; ghcr.io/ruvnet/ruflo never existed, verified via
+  # authenticated GHCR registry API). Bump the chart default, not here,
+  # when a new image is published.
 
   bridge:
     # Verified by rendering ruflo-bridge locally with its real ArgoCD
