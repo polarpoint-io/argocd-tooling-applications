@@ -1,0 +1,5 @@
+secretStore: cluster-secrets-store
+host: grc.polarpoint.io
+issuer: letsencrypt-dns01
+backendService: ciso-assistant-backend    # ClusterIP svc, port 80
+frontendService: ciso-assistant-frontend  # ClusterIP svc, port 80

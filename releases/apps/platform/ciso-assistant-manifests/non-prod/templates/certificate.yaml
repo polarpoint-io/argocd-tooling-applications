@@ -1,0 +1,10 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: grc-tls
+  namespace: ciso-assistant
+spec:
+  secretName: grc-tls
+  issuerRef: {name: {{ .Values.issuer }}, kind: ClusterIssuer}
+  dnsNames:
+    - {{ .Values.host }}

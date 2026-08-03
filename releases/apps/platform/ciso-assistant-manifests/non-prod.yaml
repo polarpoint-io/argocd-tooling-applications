@@ -1,0 +1,11 @@
+chart:
+  name: ciso-assistant-manifests
+  path: releases/apps/platform/ciso-assistant-manifests/non-prod
+  url: git@github.com:polarpoint-io/argocd-tooling-applications.git
+  targetRevision: main
+  recurseDirectory: false
+  namespace: ciso-assistant
+
+labels:
+  service: tooling
+  app: ciso-assistant
