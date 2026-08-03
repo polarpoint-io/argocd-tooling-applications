@@ -3,13 +3,15 @@
 # Schema matches releases/templates/children-applications.yaml: when
 # chart.path is set the source is treated as a git repo at that path.
 # The chart lives under charts/platform-agent-stack/ (not repo root -
-# root also holds the Dockerfile/CI that builds ghcr.io/polarpoint-io/ruflo,
-# see that repo's README). .Files.Get in the chart's templates reads
-# swarm/, policy/ and itsm-providers/ relative to that chart directory.
+# root also holds bridge/, the custom MCP bridge service and its own
+# Dockerfile/CI - see that repo's bridge/README.md).
 #
-# Sync order matters: this chart publishes the merged .mcp.json ConfigMap
-# that ruflo-bridge mounts, so this Application must be healthy before the
-# ruflo-bridge pod can start.
+# ruflo-bridge (separate repo/Application) is RETIRED. Neither Ruflo's
+# CLI nor its own bundled mcp-bridge could register arbitrary MCP
+# servers or gate calls against risk-tiers.yaml (checked directly
+# against the real npm package, not assumed) - bridge/ in this repo
+# replaces it, folded into this one Deployment/Application instead of
+# staying split across two repos with a cross-chart ConfigMap dependency.
 chart:
   name: platform-agent-stack
   url: git@github.com:polarpoint-io/platform-agent-stack.git
@@ -26,28 +28,12 @@ values: |
   llmProvider: modelplane
 
   # image.repository/tag intentionally not overridden here - the chart's
-  # own values.yaml now points at ghcr.io/polarpoint-io/ruflo (built
-  # in-house; ghcr.io/ruvnet/ruflo never existed, verified via
-  # authenticated GHCR registry API). Bump the chart default, not here,
-  # when a new image is published.
-
-  bridge:
-    # Verified by rendering ruflo-bridge locally with its real ArgoCD
-    # release name (`helm template ruflo-bridge-non-prod ./chart`):
-    # fullname is "<release>-ruflo-bridge", NOT the chart's own default
-    # ("ruflo-bridge") which assumes a release named exactly "ruflo-bridge".
-    # Update this if the ruflo-bridge Application is ever renamed.
-    serviceName: ruflo-bridge-non-prod-ruflo-bridge
-    port: 3000
+  # own values.yaml points at ghcr.io/polarpoint-io/platform-agent-bridge,
+  # built by this repo's own CI. Bump the chart default, not here, when
+  # a new image is published.
 
   externalSecrets:
     enabled: true
     secretStoreRef:
       name: cluster-secrets-store
       kind: ClusterSecretStore
-
-  state:
-    # Populated by mongostate-crossplane's claim once that's wired up.
-    # Deployment's secretKeyRef for MONGO_URI is optional:true, so the
-    # swarm starts fine without it - just without persistent state.
-    connectionSecret: agent-swarm-state
