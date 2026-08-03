@@ -30,7 +30,7 @@ values: |
       port: 5432
       user: thv_user
       database: toolhive_registry
-      sslMode: prefer
+      sslMode: disable   # cluster-internal only; bitnami postgresql has no TLS listener configured
 
   extraEnv:
     - name: THV_REGISTRY_DATABASE_PASSWORD
