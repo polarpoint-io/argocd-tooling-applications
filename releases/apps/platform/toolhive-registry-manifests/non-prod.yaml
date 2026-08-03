@@ -1,0 +1,11 @@
+chart:
+  name: toolhive-registry-manifests
+  path: releases/apps/platform/toolhive-registry-manifests/non-prod
+  url: git@github.com:polarpoint-io/argocd-tooling-applications.git
+  targetRevision: main
+  recurseDirectory: false
+  namespace: toolhive-system
+
+labels:
+  service: tooling
+  app: toolhive-registry
