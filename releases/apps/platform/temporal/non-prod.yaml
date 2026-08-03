@@ -1,7 +1,7 @@
 chart:
   name: temporal
   url: https://go.temporal.io/helm-charts/
-  targetRevision: 1.2.0
+  targetRevision: 1.6.0
   namespace: postiz
 
 labels:

@@ -1,7 +1,7 @@
 chart:
   name: toolhive-operator-crds
   url: ghcr.io/stacklok/toolhive
-  targetRevision: 0.29.1
+  targetRevision: 0.41.0
   namespace: toolhive-system
 
 labels:
