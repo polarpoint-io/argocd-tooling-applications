@@ -1,0 +1,22 @@
+# Children for the MULTITENANT cluster (downstream).
+#
+# Same repo as global-values-non-prod.yaml, different env: the children
+# template globs **/<env>.yaml, so only descriptors named
+# non-prod-multitenant.yaml are rendered by this parent.
+#
+# Exists because some workloads have to sit next to something that only
+# runs here - platform-agent-stack reaches HolmesGPT and
+# holmesgpt-runbook-mcp over cluster-local DNS. foundational is the wrong
+# home for that: it is for the per-cluster baseline every cluster gets,
+# not for applications that need a particular cluster.
+parent: false
+env: non-prod-multitenant
+project: tooling
+
+source:
+  server: https://kubernetes.default.svc
+  namespace: argocd
+
+destination:
+  server: https://192.168.11.63:6443
+  namespace: tooling
