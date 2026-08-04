@@ -5,13 +5,6 @@
 # The chart lives under charts/platform-agent-stack/ (not repo root -
 # root also holds bridge/, the custom MCP bridge service and its own
 # Dockerfile/CI - see that repo's bridge/README.md).
-#
-# ruflo-bridge (separate repo/Application) is RETIRED. Neither Ruflo's
-# CLI nor its own bundled mcp-bridge could register arbitrary MCP
-# servers or gate calls against risk-tiers.yaml (checked directly
-# against the real npm package, not assumed) - bridge/ in this repo
-# replaces it, folded into this one Deployment/Application instead of
-# staying split across two repos with a cross-chart ConfigMap dependency.
 chart:
   name: platform-agent-stack
   url: git@github.com:polarpoint-io/platform-agent-stack.git
@@ -25,7 +18,7 @@ labels:
 
 values: |
   itsmProvider: freshservice
-  llmProvider: modelplane
+  llmProvider: anthropic
 
   # image.repository/tag intentionally not overridden here - the chart's
   # own values.yaml points at ghcr.io/polarpoint-io/platform-agent-bridge,
