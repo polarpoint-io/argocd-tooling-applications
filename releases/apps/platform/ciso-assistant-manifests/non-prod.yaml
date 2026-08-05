@@ -14,7 +14,7 @@ chart:
   url: git@github.com:polarpoint-io/helm-library-manifests.git
   # Pin it. Several apps share this chart now, so tracking HEAD would move all
   # of them together the moment the library changes.
-  targetRevision: v2.0.0
+  targetRevision: v2.1.0
   namespace: ciso-assistant
 
 labels:
