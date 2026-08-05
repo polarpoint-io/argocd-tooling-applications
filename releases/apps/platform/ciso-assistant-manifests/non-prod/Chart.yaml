@@ -1,4 +1,0 @@
-apiVersion: v2
-name: ciso-assistant-manifests
-description: CISO Assistant supporting manifests - ESO secrets (db password, django key), TLS proxy (tailscale device 'grc'), certificate
-version: 0.1.0

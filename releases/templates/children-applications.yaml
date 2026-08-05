@@ -22,6 +22,12 @@ spec:
 {{- if $appConfig.chart.path }}
     path: {{ $appConfig.chart.path }}
     repoURL: {{ $appConfig.chart.url }}
+    # Emitted for path-mode too. It used to be dropped here, so every
+    # git-sourced app silently tracked HEAD of the default branch. That was
+    # survivable while each app pointed at its own directory in its own repo,
+    # and stops being survivable the moment several apps share one chart -
+    # a change to it would move all of them at once, with no way to pin.
+    targetRevision: {{ $appConfig.chart.targetRevision | default "main" }}
 {{- else }}
     chart: {{ $appConfig.chart.name }}
     repoURL: {{ $appConfig.chart.url }}
