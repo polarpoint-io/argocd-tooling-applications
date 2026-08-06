@@ -12,6 +12,17 @@ chart:
   targetRevision: main
   namespace: agents
 
+# The tailscale operator rewrites the egress Service's externalName from our
+# placeholder to the real proxy address, so ArgoCD sees drift on every refresh
+# and the app never returns to Synced. The operator owns that field once the
+# Service exists.
+ignoreDifferences:
+  - group: ""
+    kind: Service
+    name: mongo-egress
+    jsonPointers:
+      - /spec/externalName
+
 labels:
   service: tooling
   app: platform-agent-stack

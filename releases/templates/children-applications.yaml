@@ -42,6 +42,13 @@ spec:
     namespace: {{ $appConfig.chart.namespace }}
     server: {{ $globalConfig.destination.server }}
   project: {{ $globalConfig.project }}
+{{- if $appConfig.ignoreDifferences }}
+  # For fields a controller legitimately owns after ArgoCD creates them.
+  # Without this the app sits OutOfSync forever and real drift gets lost in
+  # the noise - which defeats the point of watching sync status at all.
+  ignoreDifferences:
+{{ $appConfig.ignoreDifferences | toYaml | indent 4 }}
+{{- end }}
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
