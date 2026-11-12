@@ -1,7 +1,7 @@
 chart:
   name: ciso-assistant
   url: ghcr.io/intuitem/helm-charts/ce
-  targetRevision: 0.13.8
+  targetRevision: 0.13.9
   namespace: ciso-assistant
 
 labels:
